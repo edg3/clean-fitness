@@ -15,6 +15,7 @@ Personal Exercise Tracking which has notifications as reminders
 - Personal body tracking
 - Method to turn on 'Warm Up' before exercise - gives 5 minutes to Walk, Run, Cycle, Row, etc before the exercise - you can choose what and track it
 - Muscle Grouping most likely helps with usability [see (2) below]
+
 Personal Calories Tracking with which is meant to build the habit of not constantly eating 'too much'; more an assistant than a hardcore food management system
 - Put in recipes; can track the amounts used; implies can have approximate calories out dishes (e.g. 5th approx for dinner, 5th approx for lunch tomorrow; implies track 'what was made last night' for an 'in the fridge' which you can clean out later)
 - Tracking and graphs; Food Journal - keep track of everything
