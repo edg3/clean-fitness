@@ -5,7 +5,12 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanFitness.Android", "CleanFitness\CleanFitness.Android\CleanFitness.Android.csproj", "{3271F155-1A8D-49A2-81DA-73622201DD84}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanFitness", "CleanFitness\CleanFitness\CleanFitness.csproj", "{4599E9C7-83C6-4796-A128-CE1BB577995B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanFitness", "CleanFitness\CleanFitness\CleanFitness.csproj", "{4599E9C7-83C6-4796-A128-CE1BB577995B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{205DC93E-8AAA-4139-BED7-2407D63CE940}"
+	ProjectSection(SolutionItems) = preProject
+		..\README.md = ..\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
