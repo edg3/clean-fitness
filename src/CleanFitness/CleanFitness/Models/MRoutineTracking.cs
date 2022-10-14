@@ -1,7 +1,9 @@
-﻿using System;
+﻿using SQLite;
+using System;
 
 namespace CleanFitness.Models;
 
+[Table("RoutineTracking")]
 public class MRoutineTracking : Model
 {
     public DateTime WhenStarted { get; set; } = DateTime.Now;

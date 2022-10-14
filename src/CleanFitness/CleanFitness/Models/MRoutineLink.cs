@@ -1,7 +1,9 @@
-﻿using SQLiteNetExtensions.Attributes;
+﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace CleanFitness.Models;
 
+[Table("RoutineLinks")]
 public class MRoutineLink : Model
 {
     /* hmm... find ManyToMany foreign key for sqlite-net-pcl */

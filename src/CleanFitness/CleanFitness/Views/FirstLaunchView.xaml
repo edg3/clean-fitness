@@ -2,9 +2,11 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CleanFitness.Views.FirstLaunchView">
-  <ContentView.Content>
-      <StackLayout BackgroundColor="{StaticResource Colour_ClearBackground}" BindingContext="{Binding FirstLaunchVM, Source={StaticResource VML}}">
-          <Label TextColor="{StaticResource Colour_TextHilight}" Text="First Launch" />
-      </StackLayout>
-  </ContentView.Content>
+    <ContentView.Content>
+        <StackLayout BackgroundColor="{StaticResource Colour_ClearBackground}" BindingContext="{Binding FirstLaunchVM, Source={StaticResource VML}}">
+            <Label TextColor="{StaticResource Colour_TextHilight}" Text="First Launch" />
+            <Label TextColor="{StaticResource Colour_TextGrey}" Text="Step 1: Get Calories Data" />
+            <Button Text="Download" Command="{Binding RetrieveCaloriesData}" />
+        </StackLayout>
+    </ContentView.Content>
 </ContentView>

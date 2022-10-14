@@ -40,4 +40,5 @@ Personal Calories Tracking with which is meant to build the habit of not constan
 - Routine implies a set of exercises [e.g. 'tuesday: no weights; abs']
 - RoutineLink implies which exercises are bound into a routine [e.g. 'tuesday...' has 'link' to 'amount 20' 'situps' in order position '1', it can have 'special' notes to say 'hold halfway at end for as long as you can' for whichever odd reason]
 - RoutineTracking is what gets created when you start to do a Routine - if you force close the app before the end is reached it will count it as 'incomplete' in logs [e.g. it loads the routine with links and exercises and steps through it for you; when you are done it marks the 'when_ended' and was automatically updating the generated 'document' a simple html layout view]
-- 
+
+[calories data came from https://tools.myfooddata.com/nutrition-facts-database-spreadsheet.php - tiny data adjustment was needed for CF dataset; still a large set so will take 'time', so to speak, to import]

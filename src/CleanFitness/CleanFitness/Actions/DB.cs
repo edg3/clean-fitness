@@ -18,4 +18,11 @@ public class DB
 
         }
     }
+
+    public void Insert<T>(T item)
+    {
+        if (!Connected) return;
+
+        // TODO: clean implementations
+    }
 }
