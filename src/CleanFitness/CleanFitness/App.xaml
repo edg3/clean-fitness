@@ -1,11 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CleanFitness.App">
+             x:Class="CleanFitness.App"
+             xmlns:a="clr-namespace:CleanFitness.Actions">
     <Application.Resources>
         <!-- Main -->
-        
-        
+        <a:ViewModelLocator x:Key="VML" />
+
         <!-- Colors -->
         <Color x:Key="Colour_Background">#090909</Color>
         <Color x:Key="Colour_ClearBackground">#00000000</Color>

@@ -4,7 +4,9 @@
              x:Class="CleanFitness.MainPage">
 
     <Grid BackgroundColor="{StaticResource Colour_Background}">
-        <Label TextColor="{StaticResource Colour_TextHilight}" Text="Temporary text: Clean Fitness" />
+        <Frame
+            BackgroundColor="{StaticResource Colour_ClearBackground}"
+            x:Name="frmContent" />
     </Grid>
 
 </ContentPage>
