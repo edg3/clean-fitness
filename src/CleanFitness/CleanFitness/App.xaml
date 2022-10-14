@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CleanFitness.App">
+    <Application.Resources>
+        <!-- Main -->
+        
+        
+        <!-- Colors -->
+        <Color x:Key="Colour_Background">#090909</Color>
+        <Color x:Key="Colour_ClearBackground">#00000000</Color>
+        <Color x:Key="Colour_TextDefault">#EFEFEF</Color>
+        <Color x:Key="Colour_TextGrey">#9999FF</Color>
+        <Color x:Key="Colour_TextHilight">#00A5FF</Color>
+        <Color x:Key="Colour_TextWarning">#FF3700</Color>
+    </Application.Resources>
+</Application>
