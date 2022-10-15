@@ -31,7 +31,7 @@
                     <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" TextColor="{StaticResource Colour_TextDefault}" Text="Height:" HorizontalTextAlignment="End" Margin="10"/>
-                <Entry Grid.Column="1" TextColor="{StaticResource Colour_TextDefault}" Keyboard="Default" Text="{Binding Height, Mode=TwoWay}" BackgroundColor="{StaticResource Colour_InputBackground}"/>
+                <Entry Grid.Column="1" TextColor="{StaticResource Colour_TextDefault}" Keyboard="Numeric" Text="{Binding Height, Mode=TwoWay}" BackgroundColor="{StaticResource Colour_InputBackground}"/>
             </Grid>
             <Grid IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}">
                 <Grid.ColumnDefinitions>
@@ -39,7 +39,7 @@
                     <ColumnDefinition Width="2*" />
                 </Grid.ColumnDefinitions>
                 <Label Grid.Column="0" TextColor="{StaticResource Colour_TextDefault}" Text="Weight:" HorizontalTextAlignment="End" Margin="10"/>
-                <Entry Grid.Column="1" TextColor="{StaticResource Colour_TextDefault}" Keyboard="Default" Text="{Binding Weight, Mode=TwoWay}" BackgroundColor="{StaticResource Colour_InputBackground}"/>
+                <Entry Grid.Column="1" TextColor="{StaticResource Colour_TextDefault}" Keyboard="Numeric" Text="{Binding Weight, Mode=TwoWay}" BackgroundColor="{StaticResource Colour_InputBackground}"/>
             </Grid>
             <Grid IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}">
                 <Grid.ColumnDefinitions>

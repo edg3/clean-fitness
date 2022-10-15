@@ -2,7 +2,12 @@
 using SQLite;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
+using System.Linq;
+using System.Linq.Expressions;
+using Xamarin.Forms.Internals;
+using static SQLite.SQLite3;
 
 namespace CleanFitness.Actions;
 
@@ -18,7 +23,7 @@ public class DB
         if (null != I) throw new System.Exception("Can't create multiple DB systems yet."); /* TODO: import/export schemes */
         I = this;
 
-        if (true /* file doesnt exist => go to FirstLaunch to input the starting data we save */)
+        if (!File.Exists(_dbPath) /* file doesnt exist => go to FirstLaunch to input the starting data we save */)
         {
             Connected = false;
         }
@@ -35,6 +40,98 @@ public class DB
         if (!Connected) return;
 
         _connection.Insert(item);
+    }
+
+    public void Update<T>(T item)
+    {
+        if (!Connected) return;
+
+        _connection.Update(item);
+    }
+
+    public ObservableCollection<T> Get<T>(Expression<Func<T, bool>> condition)
+    {
+        var answer = new ObservableCollection<T>();
+
+        if (!Connected) return answer;
+
+        switch (typeof(T).ToString().Split('.').Last())
+        {
+            case "MBaseCalories":
+                var _condition0 = condition as Expression<Func<MBaseCalories, bool>>;
+                _connection.Table<MBaseCalories>()
+                    .Where(_condition0)
+                    .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
+                break;
+            case "MBaseCaloriesTracking":
+                var _condition1 = condition as Expression<Func<MBaseCalories_Tracking, bool>>;
+                _connection.Table<MBaseCalories_Tracking>()
+                    .Where(_condition1)
+                    .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
+                break;
+            case "MExercise":
+                var _condition2 = condition as Expression<Func<MExercise, bool>>;
+                _connection.Table<MExercise>()
+                    .Where(_condition2)
+                    .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
+                break;
+            case "MPersonalStat":
+                var _condition3 = condition as Expression<Func<MPersonalStat, bool>>;
+                _connection.Table<MPersonalStat>()
+                    .Where(_condition3)
+                    .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
+                break;
+            case "MPersonalStatRecord":
+                var _condition4 = condition as Expression<Func<MPersonalStatRecord, bool>>;
+                _connection.Table<MPersonalStatRecord>()
+                    .Where(_condition4)
+                    .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
+                break;
+            case "MRecipe":
+                var _condition5 = condition as Expression<Func<MRecipe, bool>>;
+                _connection.Table<MRecipe>()
+                    .Where(_condition5)
+                    .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
+                break;
+            case "MRecipe_LeftOvers":
+                var _condition6 = condition as Expression<Func<MRecipe_LeftOvers, bool>>;
+                _connection.Table<MRecipe_LeftOvers>()
+                    .Where(_condition6)
+                    .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
+                break;
+            case "MRecipeIngredient":
+                var _condition7 = condition as Expression<Func<MRecipeIngredient, bool>>;
+                _connection.Table<MRecipeIngredient>()
+                    .Where(_condition7)
+                    .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
+                break;
+            case "MRecipeStep":
+                var _condition8 = condition as Expression<Func<MRecipeStep, bool>>;
+                _connection.Table<MRecipeStep>()
+                    .Where(_condition8)
+                    .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
+                break;
+            case "MRoutine":
+                var _condition9 = condition as Expression<Func<MRoutine, bool>>;
+                _connection.Table<MRoutine>()
+                    .Where(_condition9)
+                    .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
+                break;
+            case "MRoutineLink":
+                var _condition10 = condition as Expression<Func<MRoutineLink, bool>>;
+                _connection.Table<MRoutineLink>()
+                    .Where(_condition10)
+                    .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
+                break;
+            case "MRoutineTracking":
+                var _condition11 = condition as Expression<Func<MRoutineTracking, bool>>;
+                _connection.Table<MRoutineTracking>()
+                    .Where(_condition11)
+                    .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
+                break;
+        }
+
+        return answer;
     }
 
     public void Create(List<MBaseCalories> calories, string name, double height, double weight, int age)

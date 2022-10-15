@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CleanFitness.Actions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,12 @@ namespace CleanFitness.Views
         public HomeView()
         {
             InitializeComponent();
+
+            var source = new HtmlWebViewSource()
+            {
+                Html = CF.VML.HomeVM.StatsView
+            };
+            webStatview.Source = source;
         }
     }
 }

@@ -34,12 +34,12 @@ public class Navigator
         switch (location)
         {
             case NavLocation.FirstLaunch:
-                content = new FirstLaunchView();
                 CF.VML.FirstLaunchVM.LoadData();
+                content = new FirstLaunchView();
                 break;
             case NavLocation.Home:
-                content = new HomeView();
                 CF.VML.HomeVM.LoadData();
+                content = new HomeView();
                 break;
         }
 

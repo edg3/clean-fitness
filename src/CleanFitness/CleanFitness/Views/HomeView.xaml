@@ -2,9 +2,10 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CleanFitness.Views.HomeView">
-  <ContentView.Content>
-      <StackLayout BindingContext="{Binding HomeVM, Source={StaticResource VML}}">
-          <Label Text="Home" TextColor="{StaticResource Colour_TextDefault}" />
-      </StackLayout>
-  </ContentView.Content>
+    <ContentView.Content>
+        <StackLayout BindingContext="{Binding HomeVM, Source={StaticResource VML}}">
+            <Label Text="Clean Fitness" TextColor="{StaticResource Colour_TextHilight}" />
+            <WebView x:Name="webStatview" HeightRequest="200"></WebView>
+        </StackLayout>
+    </ContentView.Content>
 </ContentView>
