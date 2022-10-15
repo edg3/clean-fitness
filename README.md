@@ -21,17 +21,23 @@ Personal Calories Tracking with which is meant to build the habit of not constan
 - Tracking and graphs; Food Journal - keep track of everything
 - Add in a suggestion system for things like hardcore exercise planning
 
+# Exercise Considerations
 [Considering: possibly store photos in app DB; might make it a little painful for sharing, though]
 
 [(1) Build in old @Home plan, Build in old RTe plan for @Gym, Build in RTe suggestions and recommendations to understandable suggestions]
-
-[Considering: Mapping in meals that are low calories, high protein and carbs at certain amounts (e.g. 200g carbs to create meal, 4 dishes implies 50g carbs in the dish; you needed to stay around 240g for the day)]
 
 [Considering: There's a suggestion for protein + carbs intake around 15 minutes after exercises; should I build it in here on reminders, etc?]
 
 [Considering: Add in 'relaxed' exercises to use; as in if you have an injury and don't feel like hardcore exercise can do some yoga, perhaps, or small activities?]
 
 [(2) main areas: Upper (arms, shoulders, upper back), Lower (legs, glutes), Core (upper abdominal, lower abdominal, back), Cardio (moving exercises), Flexibility (stretches)]
+
+# Meal Assistance Considerations
+[Considering: Mapping in meals that are low calories, high protein and carbs at certain amounts (e.g. 200g carbs to create meal, 4 dishes implies 50g carbs in the dish; you needed to stay around 240g for the day)]
+
+[Considering: When you put in a recipe it can try automatically get the calories on creation to make it easier to use as a quick calories tracking setup]
+
+[Considering: How to make the map of reports work in an interactive way; e.g. state 'I want to keep track of my Carbs, Sugars, and Caffeine intake as well' and the small tracking assistance can do graphs on the reports]
 
 # Logic Consideration for Model Structures
 - Deleted flag is so you can find anything you removed in the past and get it back if you'd like.
