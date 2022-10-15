@@ -5,8 +5,11 @@
     <ContentView.Content>
         <StackLayout BackgroundColor="{StaticResource Colour_ClearBackground}" BindingContext="{Binding FirstLaunchVM, Source={StaticResource VML}}">
             <Label TextColor="{StaticResource Colour_TextHilight}" Text="First Launch" />
-            <Label TextColor="{StaticResource Colour_TextGrey}" Text="Step 1: Get Calories Data" />
-            <Button Text="Download" Command="{Binding RetrieveCaloriesData}" />
+            <!-- Calories Data Loading -->
+            <Label IsVisible="{Binding HaventOpenedCaloriesData, Mode=TwoWay}" TextColor="{StaticResource Colour_TextGrey}" Text="Step 1: Get Calories Data" />
+            <Button IsVisible="{Binding HaventOpenedCaloriesData, Mode=TwoWay}" Text="Download" Command="{Binding RetrieveCaloriesData}" />
+            <!-- Personal Information -->
+            <Label IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}" TextColor="{StaticResource Colour_TextGrey}" Text="Step 2: Put in your personal data. It isn't shared with anyone, you will only see them in your 'own' reports. If you export a report and share it that is on you." />
         </StackLayout>
     </ContentView.Content>
 </ContentView>

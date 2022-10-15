@@ -11,7 +11,7 @@
         <Color x:Key="Colour_Background">#090909</Color>
         <Color x:Key="Colour_ClearBackground">#00000000</Color>
         <Color x:Key="Colour_TextDefault">#EFEFEF</Color>
-        <Color x:Key="Colour_TextGrey">#9999FF</Color>
+        <Color x:Key="Colour_TextGrey">#7FD0FF</Color>
         <Color x:Key="Colour_TextHilight">#00A5FF</Color>
         <Color x:Key="Colour_TextWarning">#FF3700</Color>
     </Application.Resources>

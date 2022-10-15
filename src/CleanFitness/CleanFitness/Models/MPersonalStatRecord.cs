@@ -13,6 +13,6 @@ namespace CleanFitness.Models;
 public class MPersonalStatRecord : Model
 {
     public int PersonalStatId { get; set; } = 0;
-    public DateTime ReadingDate { get; set; } = 0;
+    public DateTime ReadingDate { get; set; } = DateTime.Now;
     public double Reading { get; set; } = 0;
 }
