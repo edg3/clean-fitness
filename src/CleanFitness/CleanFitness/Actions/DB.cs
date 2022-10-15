@@ -1,4 +1,7 @@
-﻿namespace CleanFitness.Actions;
+﻿using CleanFitness.Models;
+using System.Collections.Generic;
+
+namespace CleanFitness.Actions;
 
 public class DB
 {
@@ -24,5 +27,10 @@ public class DB
         if (!Connected) return;
 
         // TODO: clean implementations
+    }
+
+    public void Create(List<MBaseCalories> calories, string name, double height, double weight, int age)
+    {
+
     }
 }

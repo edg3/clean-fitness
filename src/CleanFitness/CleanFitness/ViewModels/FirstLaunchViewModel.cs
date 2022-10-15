@@ -159,6 +159,29 @@ public class FirstLaunchViewModel : IViewModel
         }
     }
     public string Name { get; set; } = "";
+    public double Height { get; set; } = 50;
+    public double Weight { get; set; } = 50;
+    public int Age { get; set; } = 50;
+
+    private bool IsFirstNameCheck = true;
+    public Command CreateDatabase => new Command(async () =>
+    {
+        if (IsFirstNameCheck && Name.Trim().Length == 0)
+        {
+            IsFirstNameCheck = false;
+            await MainPage.I.DisplayAlert("Note", "You don't have to fill in these details if you don't want to, you can change them for yourself later whenever you want to. Just note the calculations won't be completely correct for suggestions, and reports wont be linked to you. If you click 'Create' again it will continue, you won't see this message again.", "Ok");
+        }
+        else
+        {
+            if (Height < 0) Height = 1;
+            if (Weight < 0) Weight = 1;
+            if (Age < 0) Age = 1;
+            await MainPage.I.DisplayAlert("Note", "Please wait, the database will be created after you press 'Ok'. Don't force close the app.", "Ok");
+            DB.I.Create(_BaseImportList, Name, Height, Weight, Age);
+            _personalInformationSetup = false;
+            await MainPage.I.DisplayAlert("Note", "Done! You can now use Simple Fitness.", "Ok");
+        }
+    });
 
     /// <summary>
     /// General functions

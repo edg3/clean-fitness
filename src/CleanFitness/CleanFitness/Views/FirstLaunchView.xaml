@@ -49,7 +49,7 @@
                 <Label Grid.Column="0" TextColor="{StaticResource Colour_TextDefault}" Text="Age:" HorizontalTextAlignment="End" Margin="10"/>
                 <Entry Grid.Column="1" TextColor="{StaticResource Colour_TextDefault}" Keyboard="Numeric" Text="{Binding Age, Mode=TwoWay}" BackgroundColor="{StaticResource Colour_InputBackground}"/>
             </Grid>
-            <Button IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}" Text="(TODO) Create"/>
+            <Button IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}" Text="(TODO) Create" Command="{Binding CreateDatabase}"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>
