@@ -92,7 +92,51 @@ public class FirstLaunchViewModel : IViewModel
 
                                 var currentSplit = splitData[i].Split(',');
 
-                                var calorieData = new MBaseCalories() { Name = currentSplit[1], CaloriesPer100g = double.Parse(currentSplit[3]) };
+                                /* TODO: verify time taken on mobile device; 3s approx. on Desktop test */
+                                var calorieData = new MBaseCalories() { 
+                                    Name = currentSplit[1], 
+                                    CaloriesPer100g = double.Parse(currentSplit[3]),
+                                    FatPer100g = double.Parse(currentSplit[4]),
+                                    ProteinPer100g = double.Parse(currentSplit[5]),
+                                    CarbohydratePer100g = double.Parse(currentSplit[6]),
+                                    SugarsPer100g = double.Parse(currentSplit[7]),
+                                    FiberPer100g = double.Parse(currentSplit[8]),
+                                    CholesterolePer100g = double.Parse(currentSplit[9]),
+                                    SaturatedFatsPer100g = double.Parse(currentSplit[10]),
+                                    CalciumPer100g = double.Parse(currentSplit[11]),
+                                    IronPer100g = double.Parse(currentSplit[12]),
+                                    PotassiumPer100g = double.Parse(currentSplit[13]),
+                                    MagnesiumPer100g = double.Parse(currentSplit[14]),
+                                    VitaminAIUPer100g = double.Parse(currentSplit[15]),
+                                    VitaminARAEPer100g = double.Parse(currentSplit[16]),
+                                    VitaminCPer100g = double.Parse(currentSplit[17]),
+                                    VitaminB12Per100g = double.Parse(currentSplit[18]),
+                                    VitaminDPer100g = double.Parse(currentSplit[19]),
+                                    VitaminEPer100g = double.Parse(currentSplit[20]),
+                                    Omega3sPer100g = double.Parse(currentSplit[24]),
+                                    Omega6sPer100g = double.Parse(currentSplit[25]),
+                                    SucrosePer100g = double.Parse(currentSplit[30]),
+                                    GlucosePer100g = double.Parse(currentSplit[31]),
+                                    FructosePer100g = double.Parse(currentSplit[32]),
+                                    LactosePer100g = double.Parse(currentSplit[33]),
+                                    MaltosePer100g = double.Parse(currentSplit[34]),
+                                    GalactosePer100g = double.Parse(currentSplit[35]),
+                                    StarchPer100g = double.Parse(currentSplit[36]),
+                                    ChlorinePer100g = double.Parse(currentSplit[46]),
+                                    VitaminB6Per100g = double.Parse(currentSplit[51]),
+                                    VitaminD2Per100g = double.Parse(currentSplit[64]),
+                                    VitaminD3Per100g = double.Parse(currentSplit[65]),
+                                    VitaminDIUPer100g = double.Parse(currentSplit[66]),
+                                    VitaminKPer100g = double.Parse(currentSplit[67]),
+                                    AlcoholPer100g = double.Parse(currentSplit[95]),
+                                    CaffeinePer100g = double.Parse(currentSplit[96]),
+                                    WaterPer100g = double.Parse(currentSplit[22]),
+                                    SodiumPer100g = double.Parse(currentSplit[39]),
+                                    ZincPer100g = double.Parse(currentSplit[40]),
+                                    FolicAcidPer100g = double.Parse(currentSplit[54]),
+                                    FattyAcidsTotalMonosaturatedPer100g = double.Parse(currentSplit[70]),
+                                    FattyAcidsTotalPolyunsaturatedPer100g = double.Parse(currentSplit[71])
+                                };
                                 _BaseImportList.Add(calorieData);
                             }
 

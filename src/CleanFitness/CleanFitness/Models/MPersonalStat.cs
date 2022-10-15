@@ -7,5 +7,9 @@
 public class MPersonalStat : Model
 {
     public string Name { get; set; } = "";
-    public string Description { get; set; } = "";
+    /// <summary>
+    /// Can be 'Name', so string, 'Age', so int, 'Weight', so double
+    ///  - didn't put calories in here as that is data polution - calories need their own tracking table for cleaner SQL interop
+    /// </summary>
+    public string Value { get; set; } = "";
 }
