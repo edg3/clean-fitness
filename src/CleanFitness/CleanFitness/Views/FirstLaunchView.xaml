@@ -8,8 +8,48 @@
             <!-- Calories Data Loading -->
             <Label IsVisible="{Binding HaventOpenedCaloriesData, Mode=TwoWay}" TextColor="{StaticResource Colour_TextGrey}" Text="Step 1: Get Calories Data" />
             <Button IsVisible="{Binding HaventOpenedCaloriesData, Mode=TwoWay}" Text="Download" Command="{Binding RetrieveCaloriesData}" />
+            <Grid IsVisible="{Binding HaventOpenedCaloriesData, Mode=TwoWay}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="96"/>
+                    <RowDefinition Height="48"/>
+                </Grid.RowDefinitions>
+                <Button Grid.Row="1" Text="(TODO) Import Data" />
+            </Grid>
             <!-- Personal Information -->
             <Label IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}" TextColor="{StaticResource Colour_TextGrey}" Text="Step 2: Put in your personal data. It isn't shared with anyone, you will only see them in your 'own' reports. If you export a report and share it that is on you." />
+            <Grid IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" TextColor="{StaticResource Colour_TextDefault}" Text="Name:" HorizontalTextAlignment="End" Margin="10"/>
+                <Entry Grid.Column="1" TextColor="{StaticResource Colour_TextDefault}" Keyboard="Default" Text="{Binding Name, Mode=TwoWay}" BackgroundColor="{StaticResource Colour_InputBackground}"/>
+            </Grid>
+            <Grid IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" TextColor="{StaticResource Colour_TextDefault}" Text="Height:" HorizontalTextAlignment="End" Margin="10"/>
+                <Entry Grid.Column="1" TextColor="{StaticResource Colour_TextDefault}" Keyboard="Default" Text="{Binding Height, Mode=TwoWay}" BackgroundColor="{StaticResource Colour_InputBackground}"/>
+            </Grid>
+            <Grid IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" TextColor="{StaticResource Colour_TextDefault}" Text="Weight:" HorizontalTextAlignment="End" Margin="10"/>
+                <Entry Grid.Column="1" TextColor="{StaticResource Colour_TextDefault}" Keyboard="Default" Text="{Binding Weight, Mode=TwoWay}" BackgroundColor="{StaticResource Colour_InputBackground}"/>
+            </Grid>
+            <Grid IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="2*" />
+                </Grid.ColumnDefinitions>
+                <Label Grid.Column="0" TextColor="{StaticResource Colour_TextDefault}" Text="Age:" HorizontalTextAlignment="End" Margin="10"/>
+                <Entry Grid.Column="1" TextColor="{StaticResource Colour_TextDefault}" Keyboard="Numeric" Text="{Binding Age, Mode=TwoWay}" BackgroundColor="{StaticResource Colour_InputBackground}"/>
+            </Grid>
+            <Button IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}" Text="(TODO) Create"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

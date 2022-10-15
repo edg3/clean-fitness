@@ -14,5 +14,6 @@
         <Color x:Key="Colour_TextGrey">#7FD0FF</Color>
         <Color x:Key="Colour_TextHilight">#00A5FF</Color>
         <Color x:Key="Colour_TextWarning">#FF3700</Color>
+        <Color x:Key="Colour_InputBackground">#393939</Color>
     </Application.Resources>
 </Application>
