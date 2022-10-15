@@ -180,6 +180,7 @@ public class FirstLaunchViewModel : IViewModel
             DB.I.Create(_BaseImportList, Name, Height, Weight, Age);
             _personalInformationSetup = false;
             await MainPage.I.DisplayAlert("Note", "Done! You can now use Simple Fitness.", "Ok");
+            CF.Nav.GoTo(NavLocation.Home);
         }
     });
 
@@ -188,7 +189,7 @@ public class FirstLaunchViewModel : IViewModel
     /// </summary>
     public void CleanData()
     {
-        _BaseImportList.Clear();
+        _BaseImportList?.Clear();
     }
 
     public void LoadData()

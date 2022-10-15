@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace CleanFitness.Views
+namespace CleanFitness.Views;
+
+[XamlCompilation(XamlCompilationOptions.Compile)]
+public partial class FirstLaunchView : ContentView
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class FirstLaunchView : ContentView
+    public FirstLaunchView()
     {
-        public FirstLaunchView()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

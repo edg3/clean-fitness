@@ -38,6 +38,8 @@ public class Navigator
                 CF.VML.FirstLaunchVM.LoadData();
                 break;
             case NavLocation.Home:
+                content = new HomeView();
+                CF.VML.HomeVM.LoadData();
                 break;
         }
 
@@ -46,8 +48,10 @@ public class Navigator
             switch (_lastLocation)
             {
                 case NavLocation.FirstLaunch:
+                    CF.VML.FirstLaunchVM.CleanData();
                     break;
                 case NavLocation.Home:
+                    CF.VML.HomeVM.CleanData();
                     break;
             }
             _lastLocation = location;

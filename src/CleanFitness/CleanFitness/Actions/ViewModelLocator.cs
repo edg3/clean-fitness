@@ -16,4 +16,6 @@ public class ViewModelLocator
 
     public FirstLaunchViewModel FirstLaunchVM { get; }
         = new FirstLaunchViewModel();
+    public HomeViewModel HomeVM { get; }
+        = new HomeViewModel();
 }
