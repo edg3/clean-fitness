@@ -39,6 +39,10 @@ Personal Calories Tracking with which is meant to build the habit of not constan
 
 [Considering: How to make the map of reports work in an interactive way; e.g. state 'I want to keep track of my Carbs, Sugars, and Caffeine intake as well' and the small tracking assistance can do graphs on the reports]
 
+[Need: Methods to convert liquids from grams to cup, etc when putting in data - e.g. 100g drink approximate at around 235g in calcs for a cup. Intended purpose - can click '1 cup' instead of putting in approximate amounts for ease]
+
+[Need: Add spotify, experiment with https://github.com/JohnnyCrazy/SpotifyAPI-NET ]
+
 # Logic Consideration for Model Structures
 - Deleted flag is so you can find anything you removed in the past and get it back if you'd like.
 - Names need to be unique (no whitespace before or after text, extra spaces removed so no '  ' to try make sure ' ' singles); not editable
