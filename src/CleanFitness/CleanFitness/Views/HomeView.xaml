@@ -5,7 +5,7 @@
     <ContentView.Content>
         <StackLayout BindingContext="{Binding HomeVM, Source={StaticResource VML}}">
             <Label Text="Clean Fitness" TextColor="{StaticResource Colour_TextHilight}" />
-            <WebView x:Name="webStatview" HeightRequest="200"></WebView>
+            <WebView x:Name="webStatview" HeightRequest="200" BackgroundColor="{StaticResource Colour_ClearBackground}"></WebView>
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="24"/>

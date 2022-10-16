@@ -12,7 +12,7 @@ public static class CF
     // Html helpers
     public static string UpperHtml => 
         "<html><head><style>" +
-        "body{background-color:#090909;color:#EFEFEF}" +
+        "body{background-color:#efefef;color:#090909}" +
         ".row{width:99%;padding:4px;}" +
         ".col-1{padding:2px;display:inline-block;width:32%;text-align:end;color:#00A5FF;}" +
         ".col-2{padding:2px;display:inline-block;width:64%}" +

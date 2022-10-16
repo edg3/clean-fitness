@@ -18,4 +18,7 @@ public class ViewModelLocator
         = new FirstLaunchViewModel();
     public HomeViewModel HomeVM { get; }
         = new HomeViewModel();
+
+    public CaloriesViewModel CaloriesVM { get; }
+        = new CaloriesViewModel();
 }

@@ -49,6 +49,10 @@ public class Navigator
                 CF.VML.HomeVM.LoadData();
                 content = new HomeView();
                 break;
+            case NavLocation.Calories:
+                CF.VML.CaloriesVM.LoadData();
+                content = new CaloriesView();
+                break;
         }
 
         if (null != content)
@@ -60,6 +64,9 @@ public class Navigator
                     break;
                 case NavLocation.Home:
                     CF.VML.HomeVM.CleanData();
+                    break;
+                case NavLocation.Calories:
+                    CF.VML.CaloriesVM.CleanData();
                     break;
             }
             _lastLocation = location;

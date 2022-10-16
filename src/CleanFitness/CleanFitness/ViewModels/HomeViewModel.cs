@@ -48,6 +48,7 @@ public class HomeViewModel : IViewModel
             $"<div class=\"row\"><div class=\"col-1\">Height</div><div class=\"col-2\">{height.Reading.ToString("0")} cm</div></div>" +
             $"<div class=\"row\"><div class=\"col-1\">Weight</div><div class=\"col-2\">{weight.Reading.ToString("0")} kg</div></div>" +
             $"<div class=\"row\"><div class=\"col-1\">Age</div><div class=\"col-2\">{age.Value} years old</div></div>" +
+            $"<br><br>" +
             $"<div class=\"row\"><div class=\"col-1\">Calories</div><div class=\"col-2\">{caloriesToday}/{caloriwsAmount.ToString()}</div></div>";
 
     }

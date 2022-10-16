@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CleanFitness.Views.CaloriesView">
+    <ContentView.Content>
+        <StackLayout BindingContext="{Binding CaloriesVM, Source={StaticResource VML}}">
+            <Label Text="Calories Tracking" TextColor="{StaticResource Colour_TextHilight}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="14*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="1" Text="Back" Command="{Binding GoBack}" />
+            </Grid>
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>
