@@ -15,5 +15,14 @@
         <Color x:Key="Colour_TextHilight">#00A5FF</Color>
         <Color x:Key="Colour_TextWarning">#FF3700</Color>
         <Color x:Key="Colour_InputBackground">#393939</Color>
+        
+        <!-- Buttons -->
+        <ResourceDictionary>
+            <Style x:Name="styMainButton" TargetType="Button">
+                <Setter Property="TextColor" Value="#EFEFEF" />
+                <Setter Property="BackgroundColor" Value="#00A5FF" />
+                <Setter Property="CornerRadius" Value="8" />
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

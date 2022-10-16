@@ -1,8 +1,10 @@
 ﻿using CleanFitness.Actions;
 using CleanFitness.Models;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using System.Linq.Expressions;
+using Xamarin.Forms;
 
 namespace CleanFitness.ViewModels;
 
@@ -12,6 +14,18 @@ public class HomeViewModel : IViewModel
 
     private string _statsView;
     public string StatsView => CF.UpperHtml + _statsView + CF.LowerHtml;
+
+    private Command _goCalories;
+    public Command GoCalories => _goCalories ??= new Command(new Action(() => { CF.Nav.GoTo(NavLocation.Calories); }));
+
+    private Command _goExercises;
+    public Command GoExercises => _goExercises ??= new Command(new Action(() => { CF.Nav.GoTo(NavLocation.Exercises); }));
+
+    private Command _goStats;
+    public Command GoStats => _goStats ??= new Command(new Action(() => { CF.Nav.GoTo(NavLocation.Stats); }));
+
+    private Command _goRecipes;
+    public Command GoRecipes => _goRecipes ??= new Command(new Action(() => { CF.Nav.GoTo(NavLocation.Recipes); }));
 
     public void CleanData()
     {

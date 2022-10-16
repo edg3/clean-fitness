@@ -6,6 +6,31 @@
         <StackLayout BindingContext="{Binding HomeVM, Source={StaticResource VML}}">
             <Label Text="Clean Fitness" TextColor="{StaticResource Colour_TextHilight}" />
             <WebView x:Name="webStatview" HeightRequest="200"></WebView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="24"/>
+                    <!-- Calories -->
+                    <RowDefinition Height="48"/>
+                    <RowDefinition Height="24"/>
+                    <!-- Exercises -->
+                    <RowDefinition Height="48"/>
+                    <RowDefinition Height="24"/>
+                    <!-- Personal Stats -->
+                    <RowDefinition Height="48"/>
+                    <RowDefinition Height="24"/>
+                    <!-- Recipes -->
+                    <RowDefinition Height="48"/>
+                    <RowDefinition Height="24"/>
+                </Grid.RowDefinitions>
+
+                <Button Grid.Row="1" Command="{Binding GoCalories}" Text="Calories" />
+
+                <Button Grid.Row="3" Command="{Binding GoExercises}" Text="Exercises" />
+
+                <Button Grid.Row="5" Command="{Binding GoStats}" Text="Stats" />
+
+                <Button Grid.Row="7" Command="{Binding GoRecipes}" Text="Recipes" />
+            </Grid>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

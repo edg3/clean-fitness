@@ -6,7 +6,15 @@ namespace CleanFitness.Actions;
 public enum NavLocation
 {
     FirstLaunch,
-    Home
+    Home,
+
+    Calories,
+
+    Exercises,
+
+    Stats,
+
+    Recipes,
 }
 
 public class Navigator
