@@ -42,8 +42,8 @@ public class HomeViewModel : IViewModel
         var age = CF.DB.Get<MPersonalStat>(a => a.Name == "Age").First();
         var dtNow = DateTime.Now.Date;
         var caloriesToday = CF.DB.Get<MBaseCalories_Tracking>(a => a.When.Date == dtNow).Sum(a => a.CaloriesEaten);
-        double caloriwsAmount = 9.99 * weight.Reading + 6.25 * height.Reading - 4.92 * int.Parse(age.Value);
-        _statsView = 
+        double caloriwsAmount = (10 * weight.Reading) + (6.25 * height.Reading) - (5 * int.Parse(age.Value)) - 83;//9.99 * weight.Reading + 6.25 * height.Reading - 4.92 * int.Parse(age.Value);
+        _statsView =
             $"<div class=\"row\"><div class=\"col-1\">Name</div><div class=\"col-2\">{name.Value}</div></div>" +
             $"<div class=\"row\"><div class=\"col-1\">Height</div><div class=\"col-2\">{height.Reading.ToString("0")} cm</div></div>" +
             $"<div class=\"row\"><div class=\"col-1\">Weight</div><div class=\"col-2\">{weight.Reading.ToString("0")} kg</div></div>" +

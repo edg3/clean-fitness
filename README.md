@@ -51,10 +51,17 @@ Personal Calories Tracking with which is meant to build the habit of not constan
 - RoutineLink implies which exercises are bound into a routine [e.g. 'tuesday...' has 'link' to 'amount 20' 'situps' in order position '1', it can have 'special' notes to say 'hold halfway at end for as long as you can' for whichever odd reason]
 - RoutineTracking is what gets created when you start to do a Routine - if you force close the app before the end is reached it will count it as 'incomplete' in logs [e.g. it loads the routine with links and exercises and steps through it for you; when you are done it marks the 'when_ended' and was automatically updating the generated 'document' a simple html layout view]
 
-[calories data came from https://tools.myfooddata.com/nutrition-facts-database-spreadsheet.php - tiny data adjustment was needed for CF dataset; still a large set so will take 'time', so to speak, to import]
+[calories data came from https://tools.myfooddata.com/nutrition-facts-database-spreadsheet.php - tiny data adjustment was needed for CF dataset; still a large set so will take 'time', so to speak, to import; need to consider it more I think]
 
-[calories calculations came from https://www.livestrong.com/article/317684-how-many-calories-should-i-be-eating-for-my-height/ - see calculation; it isn't meant to be the most hardcore diet creation for you; rather to suggest and help you watch your habits]
-- [ wrong: 9.99 x weight in kilograms + 6.25 x height in centimeters – 4.92 x age]
+- Used: The Harris–Benedict equations revised by Mifflin and St Jeor in 1990
+- Calories count Male: (10*Weight)+(6.25*HeightCm)-(5*Age)+5
+- Calories count Female: (10*Weight)+(6.25*HeightCm)-(5*Age)-161
+- Will use: '(10*Weight)+(6.25*HeightCm)-(5*Age)-83' as a mid point - this isn't meant to be 100% perfect plan, everyone needs to manage it themselves, rather a good suggestive plan
+
+[TODO: make the Calories count 'editable' so you can put in your own amount; or adjust the calculation for yourself accordingly; will be fixed for now]
+
+[Note: see 'Issues in Dietary Use' - https://en.wikipedia.org/wiki/Harris%E2%80%93Benedict_equation ; need to work out the BMI side a bit - it implies the need to raise the count if you're underweight and reduce the count if you're overweight, I believe - doing research]
+
 - Keep intake high: Protein + Carbs
 - Avoid: Sugary beverages, baked food such as cookies or pastries, french fries, restuarant hamburgers from fast food restuarants, crackers or chips, white pasta or white bread, white rice, energy and granola bars, candied dried fruits, sweetened yoghurt, ice cream, processed meat, try stick to moderation for alcohol, candy bars
 - Goal: This isn't to tell you what you shouldn't have in your diet; rather assist you in 'watching' your diet for yourself. For this reason, reports will be very simplified - the aim is to try help you follow a good routine of income, etc. Kinda why I want to make this possible to manage recipes as it can become the 'one stop shop' for knowledge needed in this regard
