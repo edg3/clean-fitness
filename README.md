@@ -54,9 +54,9 @@ Personal Calories Tracking with which is meant to build the habit of not constan
 [calories data came from https://tools.myfooddata.com/nutrition-facts-database-spreadsheet.php - tiny data adjustment was needed for CF dataset; still a large set so will take 'time', so to speak, to import; need to consider it more I think]
 
 - Used: The Harris–Benedict equations revised by Mifflin and St Jeor in 1990
-- Calories count Male: (10*Weight)+(6.25*HeightCm)-(5*Age)+5
-- Calories count Female: (10*Weight)+(6.25*HeightCm)-(5*Age)-161
-- Will use: '(10*Weight)+(6.25*HeightCm)-(5*Age)-83' as a mid point - this isn't meant to be 100% perfect plan, everyone needs to manage it themselves, rather a good suggestive plan
+- Calories count Male: (10 x Weight)+(6.25 x HeightCm)-(5 x Age)+5
+- Calories count Female: (10 x Weight)+(6.25 x HeightCm)-(5 x Age)-161
+- Will use: '(10 x Weight)+(6.25 x HeightCm)-(5 x Age)-83' as a mid point - this isn't meant to be 100% perfect plan, everyone needs to manage it themselves, rather a good suggestive plan
 
 [TODO: make the Calories count 'editable' so you can put in your own amount; or adjust the calculation for yourself accordingly; will be fixed for now]
 
