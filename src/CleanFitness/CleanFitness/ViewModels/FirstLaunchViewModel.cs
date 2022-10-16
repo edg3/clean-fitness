@@ -93,8 +93,9 @@ public class FirstLaunchViewModel : IViewModel
                                 var currentSplit = splitData[i].Split(',');
 
                                 /* TODO: verify time taken on mobile device; 3s approx. on Desktop test */
-                                var calorieData = new MBaseCalories() { 
-                                    Name = currentSplit[1], 
+                                var calorieData = new MBaseCalories()
+                                {
+                                    Name = currentSplit[1],
                                     CaloriesPer100g = double.Parse(currentSplit[3]),
                                     FatPer100g = double.Parse(currentSplit[4]),
                                     ProteinPer100g = double.Parse(currentSplit[5]),
@@ -231,6 +232,14 @@ public class FirstLaunchViewModel : IViewModel
     /// <summary>
     /// General functions
     /// </summary>
+    private Command _importDB;
+    public Command ImportDB => _importDB ??= new Command(new Action(async () =>
+    {
+        DB.I.ImportDB();
+        await MainPage.I.DisplayAlert("Done", "Supposed DB imported!", "Ok");
+        CF.Nav.GoTo(NavLocation.Home);
+    }));
+
     public void CleanData()
     {
         _BaseImportList?.Clear();

@@ -21,6 +21,9 @@
                     <!-- Recipes -->
                     <RowDefinition Height="48"/>
                     <RowDefinition Height="24"/>
+                    <!-- Export/Import -->
+                    <RowDefinition Height="48"/>
+                    <RowDefinition Height="24"/>
                 </Grid.RowDefinitions>
 
                 <Button Grid.Row="1" Command="{Binding GoCalories}" Text="Calories" />
@@ -30,6 +33,16 @@
                 <Button Grid.Row="5" Command="{Binding GoStats}" Text="Stats" />
 
                 <Button Grid.Row="7" Command="{Binding GoRecipes}" Text="Recipes" />
+                
+                <!-- TODO: hide in appropriate manners -->
+                <Grid Grid.Row="9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="0" Text="Export" Command="{Binding DoExport}" />
+                </Grid>
             </Grid>
         </StackLayout>
     </ContentView.Content>

@@ -27,6 +27,9 @@ public class HomeViewModel : IViewModel
     private Command _goRecipes;
     public Command GoRecipes => _goRecipes ??= new Command(new Action(() => { CF.Nav.GoTo(NavLocation.Recipes); }));
 
+    private Command _doExport;
+    public Command DoExport => _doExport ??= new Command(new Action(() => { DB.I.ExportDB(); }));
+
     public void CleanData()
     {
         _statsView = null;

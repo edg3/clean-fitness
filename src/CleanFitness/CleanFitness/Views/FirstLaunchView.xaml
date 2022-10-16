@@ -15,7 +15,7 @@
                 <Label Grid.Row="0" Text=""/>
             </Grid>
             <Label IsVisible="{Binding HaventOpenedCaloriesData, Mode=TwoWay}" TextColor="{StaticResource Colour_TextGrey}" Text="You can export the data from the app on your old phone, it will still connect and download the Calories Data used as part of the process."/>
-            <Button IsVisible="{Binding HaventOpenedCaloriesData, Mode=TwoWay}" Grid.Row="1" Text="(TODO) Import Data" />
+            <Button IsVisible="{Binding HaventOpenedCaloriesData, Mode=TwoWay}" Grid.Row="1" Text="Import Data" Command="{Binding ImportDB}"/>
             <!-- Personal Information -->
             <Label IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}" TextColor="{StaticResource Colour_TextDefault}" Text="Step 2: Put in your personal data. It isn't shared with anyone, you will only see them in your 'own' reports. If you export a report and share it that is on you." />
             <Grid IsVisible="{Binding PersonalInformationSetup, Mode=TwoWay}">

@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using Xamarin.Essentials;
 using Xamarin.Forms.Internals;
 using static SQLite.SQLite3;
 
@@ -200,5 +201,30 @@ public class DB
         _connection.CreateTable<MRoutine>();
         _connection.CreateTable<MRoutineLink>();
         _connection.CreateTable<MRoutineTracking>();
+    }
+
+    public async void ExportDB()
+    {
+        await Xamarin.Essentials.Share.RequestAsync(new ShareFileRequest
+        {
+            Title = "Save DB",
+            File = new ShareFile(_dbPath)
+        });
+    }
+
+    public async void ImportDB()
+    {
+        var task = await FilePicker.PickAsync();
+        if (task.FullPath.Length > 0)
+        {
+            using (var reader = new StreamReader(File.OpenRead(task.FullPath)))
+            {
+                using (var writer = new StreamWriter(File.OpenWrite(_dbPath)))
+                {
+                    // Moght be daft and bad
+                    writer.Write(reader.ReadToEnd());
+                }
+            }
+        }
     }
 }
