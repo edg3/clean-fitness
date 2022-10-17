@@ -8,9 +8,10 @@ public static class CF
     public static DB DB => DB.I;
     public static ViewModelLocator VML => ViewModelLocator.I;
     public static Navigator Nav => Navigator.I;
+    public static INotify Notifier { get; set; }
 
     // Html helpers
-    public static string UpperHtml => 
+    public static string UpperHtml =>
         "<html><head><style>" +
         "body{background-color:#efefef;color:#090909}" +
         ".row{width:99%;padding:4px;}" +

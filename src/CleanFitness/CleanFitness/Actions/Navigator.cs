@@ -46,6 +46,7 @@ public class Navigator
                 content = new FirstLaunchView();
                 break;
             case NavLocation.Home:
+                CF.VML.HomeVM.RefreshNotifications();
                 CF.VML.HomeVM.LoadData();
                 content = new HomeView();
                 break;

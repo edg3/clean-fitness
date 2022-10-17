@@ -1,12 +1,15 @@
-﻿using Xamarin.Forms;
+﻿using CleanFitness.Actions;
+using Xamarin.Forms;
 
 namespace CleanFitness;
 
 public partial class App : Application
 {
-    public App()
+    public App(INotify notifier)
     {
         InitializeComponent();
+
+        CF.Notifier = notifier;
 
         MainPage = new MainPage();
     }

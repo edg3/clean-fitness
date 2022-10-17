@@ -2,19 +2,24 @@
 using Android.Content.PM;
 using Android.Runtime;
 using Android.OS;
+using Plugin.LocalNotification;
 
 namespace CleanFitness.Droid;
 
-[Activity(Label = "CleanFitness", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize )]
+[Activity(Label = "CleanFitness", Icon = "@mipmap/icon", Theme = "@style/MainTheme", MainLauncher = false, ConfigurationChanges = ConfigChanges.ScreenSize | ConfigChanges.Orientation | ConfigChanges.UiMode | ConfigChanges.ScreenLayout | ConfigChanges.SmallestScreenSize)]
 public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompatActivity
 {
     protected override void OnCreate(Bundle savedInstanceState)
     {
         base.OnCreate(savedInstanceState);
 
+        LocalNotificationCenter.CreateNotificationChannel();
+
         Xamarin.Essentials.Platform.Init(this, savedInstanceState);
         global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-        LoadApplication(new App());
+        LoadApplication(new App(new Notifier()));
+
+        LocalNotificationCenter.NotifyNotificationTapped(Intent);
 
         Window.SetStatusBarColor(Android.Graphics.Color.Argb(255, 9, 9, 9));
     }
@@ -23,5 +28,11 @@ public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompa
         Xamarin.Essentials.Platform.OnRequestPermissionsResult(requestCode, permissions, grantResults);
 
         base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+    }
+
+    protected override void OnNewIntent(Android.Content.Intent intent)
+    {
+        LocalNotificationCenter.NotifyNotificationTapped(intent);
+        base.OnNewIntent(intent);
     }
 }

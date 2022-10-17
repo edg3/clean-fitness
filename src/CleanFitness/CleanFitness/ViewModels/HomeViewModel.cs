@@ -55,4 +55,10 @@ public class HomeViewModel : IViewModel
             $"<div class=\"row\"><div class=\"col-1\">Calories</div><div class=\"col-2\">{caloriesToday}/{caloriwsAmount.ToString()}</div></div>";
 
     }
+
+    public void RefreshNotifications()
+    {
+        // Does replace in the channel so don't need to clean it more
+        CF.Notifier.Add(DateTime.Now.AddSeconds(10), "Test Notification", NotificationChannel.N1);
+    }
 }
