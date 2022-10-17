@@ -1,4 +1,6 @@
-﻿namespace CleanFitness.Actions;
+﻿using System;
+
+namespace CleanFitness.Actions;
 
 /// <summary>
 /// Short hand way to get access to anything globally
@@ -20,4 +22,10 @@ public static class CF
         "</style></head><body>";
     public static string LowerHtml =>
         "</body></html>";
+
+    // Date helper
+    public static bool IsToday(DateTime when)
+    {
+        return (when.Year == DateTime.Now.Year && when.Month == DateTime.Now.Month && when.Day == DateTime.Now.Day);
+    }
 }

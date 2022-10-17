@@ -14,6 +14,92 @@
 
                 <Button Grid.Column="1" Text="Back" Command="{Binding GoBack}" />
             </Grid>
+            <Label TextColor="{StaticResource Colour_TextDefault}" Text="Calories Today so far:" />
+            <Grid BackgroundColor="{StaticResource Colour_ListBorder}" Padding="2">
+                <ListView ItemsSource="{Binding CaloriesTrack, Mode=TwoWay}" HeightRequest="128" BackgroundColor="{StaticResource Colour_Background}"></ListView>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="0" Text="Delete" Command="{Binding DeleteSelectedTracking}" />
+            </Grid>
+            <Label TextColor="{StaticResource Colour_TextDefault}" Text="Add to Calories Today:" />
+            <Grid>
+                <Grid.RowDefinitions>
+                    <!-- search -->
+                    <RowDefinition Height="48"/>
+                    <!-- list of results to select -->
+                    <RowDefinition Height="128"/>
+                    <!-- inputboxes: name, calories - user editable -->
+                    <RowDefinition Height="148"/>
+                    <!-- quick weights -->
+                    <RowDefinition Height="48"/>
+                    <!-- Save -->
+                    <RowDefinition Height="48"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Entry Grid.Column="0" Text="{Binding SearchTerm, Mode=TwoWay}" Keyboard="Default" BackgroundColor="{StaticResource Colour_InputBackground}" TextColor="{StaticResource Colour_TextDefault}" />
+
+                    <Button Grid.Column="1" Text="Find" Command="{Binding SearchForCalories}" />
+                </Grid>
+
+                <Grid Grid.Row="1"  BackgroundColor="{StaticResource Colour_ListBorder}" Padding="2">
+                    <ListView ItemsSource="{Binding SearchResults, Mode=TwoWay}" HeightRequest="128" SelectionMode="Single" SelectedItem="{Binding SearchResultSelected, Mode=TwoWay}" BackgroundColor="{StaticResource Colour_Background}"/>
+                </Grid>
+
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="48" />
+                        <RowDefinition Height="48" />
+                    </Grid.RowDefinitions>
+
+                    <Label Grid.Row="0" Grid.Column="0" Text="Name:" TextColor="{StaticResource Colour_TextGrey}" />
+                    <Entry Grid.Row="0" Grid.Column="1" Text="{Binding CaloriesName, Mode=TwoWay}" Keyboard="Default" BackgroundColor="{StaticResource Colour_InputBackground}" TextColor="{StaticResource Colour_TextDefault}"/>
+
+                    <Label Grid.Row="1" Grid.Column="0" Text="Calories:" TextColor="{StaticResource Colour_TextGrey}" />
+                    <Entry Grid.Row="1" Grid.Column="1" Text="{Binding CaloriesCount, Mode=TwoWay}" Keyboard="Numeric" BackgroundColor="{StaticResource Colour_InputBackground}" TextColor="{StaticResource Colour_TextDefault}"/>
+
+                    <Label Grid.Row="2" Grid.Column="0" Text="Weight (grams):" TextColor="{StaticResource Colour_TextGrey}" />
+                    <Entry Grid.Row="2" Grid.Column="1" Text="{Binding CaloriesWeight, Mode=TwoWay}" Keyboard="Numeric" BackgroundColor="{StaticResource Colour_InputBackground}" TextColor="{StaticResource Colour_TextDefault}"/>
+                </Grid>
+
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" Text="Glass 240g" Command="{Binding Act_Speed240g}" FontSize="10"/>
+                    <Button Grid.Column="1" Text="Shot 25g" Command="{Binding Act_Speed25g}" FontSize="10" />
+                    <!--<Button Grid.Column="2" Text="250g" Command="" FontSize="8" />-->
+                    <!--<Button Grid.Column="3" Text="500g" Command="" FontSize="8" />-->
+                    <!--<Button Grid.Column="4" Text="" Command="" FontSize="8" />-->
+                </Grid>
+                
+                <Grid Grid.Row="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="1" Text="Add" Command="{Binding AddCalories}" />
+                </Grid>
+            </Grid>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

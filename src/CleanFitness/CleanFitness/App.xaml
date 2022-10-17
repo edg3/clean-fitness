@@ -15,6 +15,7 @@
         <Color x:Key="Colour_TextHilight">#00A5FF</Color>
         <Color x:Key="Colour_TextWarning">#FF3700</Color>
         <Color x:Key="Colour_InputBackground">#393939</Color>
+        <Color x:Key="Colour_ListBorder">#292929</Color>
         
         <!-- Buttons -->
         <ResourceDictionary>

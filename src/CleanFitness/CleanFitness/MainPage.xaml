@@ -4,9 +4,12 @@
              x:Class="CleanFitness.MainPage">
 
     <Grid BackgroundColor="{StaticResource Colour_Background}">
-        <Frame
-            BackgroundColor="{StaticResource Colour_ClearBackground}"
-            x:Name="frmContent" />
+        <ScrollView>
+            <Frame
+                BackgroundColor="{StaticResource Colour_ClearBackground}"
+                x:Name="frmContent"
+                Margin="16,0"/>
+        </ScrollView>
     </Grid>
 
 </ContentPage>
