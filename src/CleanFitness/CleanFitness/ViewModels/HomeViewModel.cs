@@ -59,7 +59,7 @@ public class HomeViewModel : IViewModel
     public void RefreshNotifications()
     {
         // Does replace in the channel so don't need to clean it more
-        // Test: CF.Notifier.Add(DateTime.Now.AddSeconds(10), "Test Notification", NotificationChannel.N1);
+        // TODO: Make it possible to set a Hour:minute in the day for the notifications
         
         // Tomorrow morning = that days set exercise, or a reminder to stay active for if no exercise
         var tomorrow = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1);
