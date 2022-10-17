@@ -45,20 +45,28 @@ public class HomeViewModel : IViewModel
         var age = CF.DB.Get<MPersonalStat>(a => a.Name == "Age").First();
         var dtNow = DateTime.Now.Date;
         var caloriesToday = CF.DB.Get<MBaseCalories_Tracking>(a => a.When.Date == dtNow).Sum(a => a.CaloriesEaten);
-        double caloriwsAmount = (10 * weight.Reading) + (6.25 * height.Reading) - (5 * int.Parse(age.Value)) - 83;//9.99 * weight.Reading + 6.25 * height.Reading - 4.92 * int.Parse(age.Value);
+        double caloriesAmount = (10 * weight.Reading) + (6.25 * height.Reading) - (5 * int.Parse(age.Value)) - 83;
         _statsView =
             $"<div class=\"row\"><div class=\"col-1\">Name</div><div class=\"col-2\">{name.Value}</div></div>" +
             $"<div class=\"row\"><div class=\"col-1\">Height</div><div class=\"col-2\">{height.Reading.ToString("0")} cm</div></div>" +
-            $"<div class=\"row\"><div class=\"col-1\">Weight</div><div class=\"col-2\">{weight.Reading.ToString("0")} kg</div></div>" +
+            $"<div class=\"row\"><div class=\"col-1\">Weight</div><div class=\"col-2\">{weight.Reading.ToString("0.00")} kg</div></div>" +
             $"<div class=\"row\"><div class=\"col-1\">Age</div><div class=\"col-2\">{age.Value} years old</div></div>" +
             $"<br><br>" +
-            $"<div class=\"row\"><div class=\"col-1\">Calories</div><div class=\"col-2\">{caloriesToday}/{caloriwsAmount.ToString()}</div></div>";
+            $"<div class=\"row\"><div class=\"col-1\">Calories</div><div class=\"col-2\">{caloriesToday}/{caloriesAmount.ToString()}</div></div>";
 
     }
 
     public void RefreshNotifications()
     {
         // Does replace in the channel so don't need to clean it more
-        CF.Notifier.Add(DateTime.Now.AddSeconds(10), "Test Notification", NotificationChannel.N1);
+        // Test: CF.Notifier.Add(DateTime.Now.AddSeconds(10), "Test Notification", NotificationChannel.N1);
+        
+        // Tomorrow morning = that days set exercise, or a reminder to stay active for if no exercise
+        var tomorrow = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1);
+        tomorrow = tomorrow + new TimeSpan(7,0,0);
+        CF.Notifier.Add(tomorrow, "Good morning! Don't forget to exercise, or stretch, today.", NotificationChannel.N1);
+        // In 4 days - this means you can skip a day and it will remind you you need to try more exercises in 4 days
+        var future = tomorrow.AddDays(3);
+        CF.Notifier.Add(future, "Oh dear, you haven't been back for a few days. Please try exercise, please try exercise, or stretch, today.", NotificationChannel.N2);
     }
 }

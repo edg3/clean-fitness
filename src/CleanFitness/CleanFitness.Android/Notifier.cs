@@ -15,7 +15,7 @@ public class Notifier : INotify
             NotificationId = (int)chan,
             Title = "Clean Fitness",
             Description = msg,
-            ReturningData = msg,
+            //ReturningData = msg,
             Schedule =
             {
                 NotifyTime = when

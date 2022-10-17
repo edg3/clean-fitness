@@ -4,9 +4,8 @@ namespace CleanFitness.Actions;
 
 public enum NotificationChannel
 {
-    N1 = 2001, 
-    N2 = 2002, 
-    N3 = 2003 
+    N1 = 2001, // Tomorrow Morning - exercise or at least stretch
+    N2 = 2002, // In 4 days of not exercising it reminds you you're meant to
 
 }
 public abstract class INotify
