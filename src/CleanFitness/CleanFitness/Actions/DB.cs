@@ -15,7 +15,7 @@ namespace CleanFitness.Actions;
 public class DB
 {
     private SQLiteConnection _connection = null;
-    private string _dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Notes.db3");
+    private string _dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "clean-fitness.db3");
 
     public static DB I { get; private set; }
     public bool Connected { get; private set; }
@@ -205,6 +205,7 @@ public class DB
 
     public async void ExportDB()
     {
+        // TODO: save to local storage?
         await Xamarin.Essentials.Share.RequestAsync(new ShareFileRequest
         {
             Title = "Save DB",
