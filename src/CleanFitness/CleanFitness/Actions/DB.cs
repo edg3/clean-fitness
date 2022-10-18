@@ -64,7 +64,7 @@ public class DB
                     .Where(_condition0)
                     .ForEach(i => answer.Add((T)Convert.ChangeType(i, typeof(T))));
                 break;
-            case "MBaseCaloriesTracking":
+            case "MBaseCalories_Tracking":
                 var _condition1 = condition as Expression<Func<MBaseCalories_Tracking, bool>>;
                 _connection.Table<MBaseCalories_Tracking>()
                     .Where(_condition1)

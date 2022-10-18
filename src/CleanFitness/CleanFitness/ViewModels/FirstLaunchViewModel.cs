@@ -175,18 +175,18 @@ public class FirstLaunchViewModel : IViewModel
             {
                 PersonalInformationSetup = true;
                 HaventOpenedCaloriesData = false;
-                await MainPage.I.DisplayAlert("Complete", "We've got all the calories data in memory ready to import into the database when we create it for ourselves.", "Yay!");
+                CF.Popup("Complete", "We've got all the calories data in memory ready to import into the database when we create it for ourselves.", "Yay!");
             }
             else
             {
                 _BaseImportList?.Clear();
                 _BaseImportList = null;
-                await MainPage.I.DisplayAlert("Oh dear", "There seems to have been a problem...", "I'll try again later...");
+                CF.Popup("Oh dear", "There seems to have been a problem...", "I'll try again later...");
             }
         }
         else
         {
-            await MainPage.I.DisplayAlert("Oops...", "You've already loaded the data from the web...", "Ok");
+            CF.Popup("Oops...", "You've already loaded the data from the web...", "Ok");
         }
     });
 

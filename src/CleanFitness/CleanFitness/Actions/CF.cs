@@ -28,4 +28,10 @@ public static class CF
     {
         return (when.Year == DateTime.Now.Year && when.Month == DateTime.Now.Month && when.Day == DateTime.Now.Day);
     }
+
+    // Popups
+    public async static void Popup(string title, string message, string cancel)
+    {
+        await MainPage.I.DisplayAlert(title, message, cancel);
+    }
 }

@@ -104,4 +104,9 @@ public class MBaseCalories
     public double AlcoholPer100g { get; set; } = 0; // 95
     public double CaffeinePer100g { get; set; } = 0; // 96
     //public double TheobrominePer100g { get; set; } = 0;
+
+    public override string ToString()
+    {
+        return $"{Name} ({CaloriesPer100g} per 100g)";
+    }
 }

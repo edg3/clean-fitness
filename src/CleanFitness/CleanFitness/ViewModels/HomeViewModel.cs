@@ -43,8 +43,7 @@ public class HomeViewModel : IViewModel
         var weightId = CF.DB.Get<MPersonalStat>(a => a.Name == "Weight").First().Id;
         var weight = CF.DB.Get<MPersonalStatRecord>(a => a.PersonalStatId == weightId).OrderBy(a => a.Id).Last();
         var age = CF.DB.Get<MPersonalStat>(a => a.Name == "Age").First();
-        var dtNow = DateTime.Now.Date;
-        var caloriesToday = CF.DB.Get<MBaseCalories_Tracking>(a => a.When.Date == dtNow).Sum(a => a.CaloriesEaten);
+        var caloriesToday = CF.DB.Get<MBaseCalories_Tracking>(a => a.When >= DateTime.Today && !a.Deleted).Sum(a => a.CaloriesEaten);
         double caloriesAmount = (10 * weight.Reading) + (6.25 * height.Reading) - (5 * int.Parse(age.Value)) - 83;
         _statsView =
             $"<div class=\"row\"><div class=\"col-1\">Name</div><div class=\"col-2\">{name.Value}</div></div>" +
@@ -52,7 +51,7 @@ public class HomeViewModel : IViewModel
             $"<div class=\"row\"><div class=\"col-1\">Weight</div><div class=\"col-2\">{weight.Reading.ToString("0.00")} kg</div></div>" +
             $"<div class=\"row\"><div class=\"col-1\">Age</div><div class=\"col-2\">{age.Value} years old</div></div>" +
             $"<br><br>" +
-            $"<div class=\"row\"><div class=\"col-1\">Calories</div><div class=\"col-2\">{caloriesToday}/{caloriesAmount.ToString()}</div></div>";
+            $"<div class=\"row\"><div class=\"col-1\">Calories</div><div class=\"col-2\">{caloriesToday.ToString("0")}/{caloriesAmount.ToString("0")}</div></div>";
 
     }
 
