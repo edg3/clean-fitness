@@ -101,12 +101,6 @@ public static class DataInit
         });
         DB.Insert(new MExercise()
         {
-            Name = "Standing Yoga Squat",
-            Description = "",
-            RequiredEquipment = ""
-        });
-        DB.Insert(new MExercise()
-        {
             Name = "Standing Elbow to Knee",
             Description = "",
             RequiredEquipment = ""
@@ -141,18 +135,6 @@ public static class DataInit
             Description = "",
             RequiredEquipment = ""
         });
-        DB.Insert(new MExercise()
-        {
-            Name = "Standing Cross Body Extension",
-            Description = "",
-            RequiredEquipment = ""
-        });
-        DB.Insert(new MExercise()
-        {
-            Name = "Standing Kangaroos",
-            Description = "",
-            RequiredEquipment = ""
-        });
 
 
         //  - Dumbbells
@@ -162,6 +144,7 @@ public static class DataInit
             Description = "",
             RequiredEquipment = "Dumbbells"
         });
+        /* INTERNET DIED HERE */
         DB.Insert(new MExercise()
         {
             Name = "Renegade Row Push Ups with Dumbbells",
