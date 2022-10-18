@@ -57,7 +57,7 @@
                     <!-- inputboxes: name, calories - user editable -->
                     <RowDefinition Height="168"/>
                     <!-- quick weights -->
-                    <RowDefinition Height="48"/>
+                    <RowDefinition Height="96"/>
                     <!-- Save -->
                     <RowDefinition Height="48"/>
                 </Grid.RowDefinitions>
@@ -118,22 +118,31 @@
                     <Entry Grid.Row="2" Grid.Column="1" Text="{Binding CaloriesWeight, Mode=TwoWay}" Keyboard="Numeric" BackgroundColor="{StaticResource Colour_InputBackground}" TextColor="{StaticResource Colour_TextDefault}"/>
                 </Grid>
 
-                <Grid Grid.Row="3">
+                <Grid Grid.Row="3" Padding="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="48" />
+                        <RowDefinition Height="48" />
+                    </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*" />
                         <ColumnDefinition Width="1*" />
                         <ColumnDefinition Width="1*" />
                         <ColumnDefinition Width="1*" />
-                        <ColumnDefinition Width="1*" />
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" Text="Glass 240g" Command="{Binding Act_Speed240g}" FontSize="10"/>
-                    <Button Grid.Column="1" Text="Shot 25g" Command="{Binding Act_Speed25g}" FontSize="10" />
-                    <!--<Button Grid.Column="2" Text="250g" Command="" FontSize="10" />-->
-                    <Button Grid.Column="3" Text="Glass Cola" Command="{Binding Act_CokeClassicGlass}" FontSize="10" />
-                    <!--<Button Grid.Column="4" Text="" Command="" FontSize="10" />-->
+                    <Button Grid.Row="0" Grid.Column="0" Text="Glass 240g" Command="{Binding Act_Speed240g}" FontSize="10"/>
+                    <Button Grid.Row="0" Grid.Column="1" Text="Shot 25g" Command="{Binding Act_Speed25g}" FontSize="10" />
+                    <Button Grid.Row="0" Grid.Column="2" Text="Glass Cola" Command="{Binding Act_CokeClassicGlass}" FontSize="10" />
+                    <Button Grid.Row="0" Grid.Column="3" Text="Breakfast 226g" Command="{Binding Act_AvgBreakfastSize}" FontSize="10" />
+                    
+                    <Button Grid.Row="1" Grid.Column="0" Text="Hearty Meal 400g" Command="{Binding Act_HeartyMealSize}" FontSize="10"/>
+                    <Button Grid.Row="1" Grid.Column="1" Text="Main Meal 300g" Command="{Binding Act_MainMealSize}" FontSize="10" />
+                    <Button Grid.Row="1" Grid.Column="2" Text="Mini Meal 200g" Command="{Binding Act_MiniMealSize}" FontSize="10" />
+                    <Button Grid.Row="1" Grid.Column="3" Text="Lunch 250g" Command="{Binding Act_AvgLunchSize}" FontSize="10" />
+                    
+                    <!-- TODO: Must do experimentation and research for the second row of sizes; want to consider 'average joe' amounts to make this easier to us -->
                 </Grid>
                 
-                <Grid Grid.Row="4">
+                <Grid Grid.Row="4" Margin="4">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="3*" />
                         <ColumnDefinition Width="2*" />

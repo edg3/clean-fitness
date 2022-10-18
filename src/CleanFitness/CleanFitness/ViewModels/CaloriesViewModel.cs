@@ -140,6 +140,42 @@ public class CaloriesViewModel : IViewModel
         CaloriesCount = 58;
     });
 
+    // TODO Sort these measurments out to my own averages
+    private Command _act_HeartyMealSize;
+    public Command Act_HeartyMealSize => _act_HeartyMealSize ??= new Command(new Action(() =>
+    {
+        // Extra dinner plate weight?
+        CaloriesWeight = 400;
+    }));
+
+    private Command _act_MainMealSize;
+    public Command Act_MainMealSize => _act_MainMealSize ??= new Command(new Action(() =>
+    {
+        // Usual dinner plate weight?
+        CaloriesWeight = 300;
+    }));
+
+    private Command _act_MiniMealSize;
+    public Command Act_MiniMealSize => _act_MiniMealSize ??= new Command(new Action(() =>
+    {
+        // Small dinner plate weight?
+        CaloriesWeight = 200;
+    }));
+
+    private Command _act_AvgBreakfastSize;
+    public Command Act_AvgBreakfastSize => _act_AvgBreakfastSize ??= new Command(new Action(() =>
+    {
+        // Approx. breakfast bowl size?
+        CaloriesWeight = 226;
+    }));
+
+    private Command _act_AvgLunchSize;
+    public Command Act_AvgLunchSize => _act_AvgLunchSize ??= new Command(new Action(() =>
+    {
+        // Approx. Lunch serving? This may be way off, lazy here
+        CaloriesWeight = 250;
+    }));
+
     private Command _addCalories;
     public Command AddCalories => _addCalories ??= new Command(new Action(() =>
     {
@@ -149,6 +185,8 @@ public class CaloriesViewModel : IViewModel
         }
         else
         {
+            // TODO: Work out what will happen with portions of things which aren't quite usable at this state
+            //       e.g. 345g steaks + approx. 200g salad ingredients, makes 4 servings => 2 servings used dinner time, 2 for lunch packs for tomorrow, calories total made, calories in left overs made => approx. calories, not 100% accurate, but serves the purpose
             var newCals = new MBaseCalories_Tracking
             {
                 When = DateTime.Now,
