@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CleanFitness.Views.ExerciseView">
+    <ContentView.Content>
+        <StackLayout BindingContext="{Binding ExerciseVM, Source={StaticResource VML}}">
+            <Label TextColor="{x:StaticResource Colour_TextHilight}" Text="Exercises" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="14*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Column="1" Text="Back" Command="{Binding GoBack}" />
+            </Grid>
+            <Label TextColor="{StaticResource Colour_TextHilight}" Text="Totally Motivating Sentence Work Here" HorizontalOptions="Center" />
+            <Label TextColor="{StaticResource Colour_TextDefault}" Text="Today's Suggestions:" />
+            <Grid HeightRequest="240">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0" BackgroundColor="{StaticResource Colour_ListBorder}" Padding="2">
+                    <ListView SelectionMode="Single" BackgroundColor="{StaticResource Colour_Background}">
+
+                    </ListView>
+                </Grid>
+
+                <StackLayout Grid.Column="1">
+                    <Button Text="DO" Command="{Binding DoSelectedExercise}"/>
+                    <Button Text="NEW" Command="{Binding GoNewExercise}"/>
+                </StackLayout>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <!-- Manage exercises and days they show up; days that are empty show 'Stretch' -->
+                <Button Grid.Column="0" Text="Manage" Command="{Binding GoManageExercise}"/>
+                <!--<Button Grid.Column="1" Text="" Command="{Binding Go}"/>-->
+                <Button Grid.Column="2" Text="History" Command="{Binding GoExerciseLogs}"/>
+            </Grid>
+            <!-- Maybe: Past Exercises info here - considered something like '2022/01/01 Exercise Name - Max Weight 5Kg' or something? -->
+        </StackLayout>
+    </ContentView.Content>
+</ContentView>

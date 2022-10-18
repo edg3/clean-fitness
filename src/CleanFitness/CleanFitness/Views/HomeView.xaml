@@ -26,8 +26,19 @@
                     <RowDefinition Height="24"/>
                 </Grid.RowDefinitions>
 
-                <Button Grid.Row="1" Command="{Binding GoCalories}" Text="Calories" />
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="3*" />
+                    </Grid.ColumnDefinitions>
 
+                    <!-- Logic: Tracking calories just helping here; you can manage your daily easily - all we 'need'; tracking. So past implies the history and graphs if you are that into it; just checking your intake can be enough -->
+                    <Button Grid.Column="0" Command="{Binding GoCaloriesHistory}" Text="Past" />
+
+                    <Button Grid.Column="1" Command="{Binding GoCalories}" Text="Calories" />
+                </Grid>
+
+                <!-- Logic: These areas manage their own histories; just felt that calories being super simplified so you can easily track them for yourself would need a little assistance -->
                 <Button Grid.Row="3" Command="{Binding GoExercises}" Text="Exercises" />
 
                 <Button Grid.Row="5" Command="{Binding GoStats}" Text="Stats" />

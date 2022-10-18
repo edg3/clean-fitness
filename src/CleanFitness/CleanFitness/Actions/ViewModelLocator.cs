@@ -21,4 +21,7 @@ public class ViewModelLocator
 
     public CaloriesViewModel CaloriesVM { get; }
         = new CaloriesViewModel();
+
+    public ExerciseViewModel ExerciseVM { get; }
+        = new ExerciseViewModel();
 }

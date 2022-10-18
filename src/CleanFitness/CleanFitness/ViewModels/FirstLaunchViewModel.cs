@@ -233,12 +233,12 @@ public class FirstLaunchViewModel : IViewModel
     /// General functions
     /// </summary>
     private Command _importDB;
-    public Command ImportDB => _importDB ??= new Command(new Action(async () =>
+    public Command ImportDB => _importDB ??= new Command(async () =>
     {
         DB.I.ImportDB();
         await MainPage.I.DisplayAlert("Done", "Supposed DB imported!", "Ok");
         CF.Nav.GoTo(NavLocation.Home);
-    }));
+    });
 
     public void CleanData()
     {

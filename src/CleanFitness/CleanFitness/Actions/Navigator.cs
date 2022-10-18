@@ -41,6 +41,7 @@ public class Navigator
 
         switch (location)
         {
+            /* MAIN */
             case NavLocation.FirstLaunch:
                 CF.VML.FirstLaunchVM.LoadData();
                 content = new FirstLaunchView();
@@ -50,9 +51,17 @@ public class Navigator
                 CF.VML.HomeVM.LoadData();
                 content = new HomeView();
                 break;
+
+            /* CALORIES */
             case NavLocation.Calories:
                 CF.VML.CaloriesVM.LoadData();
                 content = new CaloriesView();
+                break;
+
+            /* EXERCISES */
+            case NavLocation.Exercises:
+                CF.VML.ExerciseVM.LoadData();
+                content = new ExerciseView();
                 break;
         }
 
@@ -60,14 +69,22 @@ public class Navigator
         {
             switch (_lastLocation)
             {
+                /* MAIN */
                 case NavLocation.FirstLaunch:
                     CF.VML.FirstLaunchVM.CleanData();
                     break;
                 case NavLocation.Home:
                     CF.VML.HomeVM.CleanData();
                     break;
+
+                /* CALORIES */
                 case NavLocation.Calories:
                     CF.VML.CaloriesVM.CleanData();
+                    break;
+
+                /* EXERCISES */
+                case NavLocation.Exercises:
+                    CF.VML.ExerciseVM.CleanData();
                     break;
             }
             _lastLocation = location;

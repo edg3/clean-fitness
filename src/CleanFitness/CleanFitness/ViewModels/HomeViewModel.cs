@@ -16,19 +16,19 @@ public class HomeViewModel : IViewModel
     public string StatsView => CF.UpperHtml + _statsView + CF.LowerHtml;
 
     private Command _goCalories;
-    public Command GoCalories => _goCalories ??= new Command(new Action(() => { CF.Nav.GoTo(NavLocation.Calories); }));
+    public Command GoCalories => _goCalories ??= new Command(() => { CF.Nav.GoTo(NavLocation.Calories); });
 
     private Command _goExercises;
-    public Command GoExercises => _goExercises ??= new Command(new Action(() => { CF.Nav.GoTo(NavLocation.Exercises); }));
+    public Command GoExercises => _goExercises ??= new Command(() => { CF.Nav.GoTo(NavLocation.Exercises); });
 
     private Command _goStats;
-    public Command GoStats => _goStats ??= new Command(new Action(() => { CF.Nav.GoTo(NavLocation.Stats); }));
+    public Command GoStats => _goStats ??= new Command(() => { CF.Nav.GoTo(NavLocation.Stats); });
 
     private Command _goRecipes;
-    public Command GoRecipes => _goRecipes ??= new Command(new Action(() => { CF.Nav.GoTo(NavLocation.Recipes); }));
+    public Command GoRecipes => _goRecipes ??= new Command(() => { CF.Nav.GoTo(NavLocation.Recipes); });
 
     private Command _doExport;
-    public Command DoExport => _doExport ??= new Command(new Action(() => { DB.I.ExportDB(); }));
+    public Command DoExport => _doExport ??= new Command(() => { DB.I.ExportDB(); });
 
     public void CleanData()
     {

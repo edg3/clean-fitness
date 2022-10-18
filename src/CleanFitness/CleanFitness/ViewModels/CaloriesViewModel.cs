@@ -15,7 +15,7 @@ public class CaloriesViewModel : IViewModel
     public event PropertyChangedEventHandler PropertyChanged;
 
     private Command _goBack;
-    public Command GoBack => _goBack ??= new Command(new Action(() => { CF.Nav.GoTo(NavLocation.Home); }));
+    public Command GoBack => _goBack ??= new Command(() => { CF.Nav.GoTo(NavLocation.Home); });
 
     public ObservableCollection<MBaseCalories_Tracking> CaloriesTrack { get; private set; } = new ObservableCollection<MBaseCalories_Tracking>();
 
@@ -87,7 +87,7 @@ public class CaloriesViewModel : IViewModel
     }
 
     private Command _deleteSelectedTracking;
-    public Command DeleteSelectedTracking => _deleteSelectedTracking ??= new Command(new Action(() =>
+    public Command DeleteSelectedTracking => _deleteSelectedTracking ??= new Command(() =>
     {
         if (null == CaloriesTrackSelected)
         {
@@ -102,11 +102,11 @@ public class CaloriesViewModel : IViewModel
             CF.Popup("Success","The Track you selected has been deleted. TODO: implement the 'see deleted' to bring them back, or just look at them, or such.", "Ok");
             CF.Nav.GoTo(NavLocation.Home);
         }
-    }));
+    });
 
     public string SearchTerm { get; set; } = "";
     private Command _searchForCalories;
-    public Command SearchForCalories => _searchForCalories ??= new Command(new Action(() =>
+    public Command SearchForCalories => _searchForCalories ??= new Command(() =>
     {
         SearchResultSelected = null;
         SearchResults.Clear();
@@ -118,7 +118,7 @@ public class CaloriesViewModel : IViewModel
                 .ToList()
                 .ForEach(b => SearchResults.Add(b));
         }
-    }));
+    });
 
     private Command _act_Speed240g;
     public Command Act_Speed240g => _act_Speed240g ??= new Command(() =>
@@ -142,42 +142,42 @@ public class CaloriesViewModel : IViewModel
 
     // TODO Sort these measurments out to my own averages
     private Command _act_HeartyMealSize;
-    public Command Act_HeartyMealSize => _act_HeartyMealSize ??= new Command(new Action(() =>
+    public Command Act_HeartyMealSize => _act_HeartyMealSize ??= new Command(() =>
     {
         // Extra dinner plate weight?
         CaloriesWeight = 400;
-    }));
+    });
 
     private Command _act_MainMealSize;
-    public Command Act_MainMealSize => _act_MainMealSize ??= new Command(new Action(() =>
+    public Command Act_MainMealSize => _act_MainMealSize ??= new Command(() =>
     {
         // Usual dinner plate weight?
         CaloriesWeight = 300;
-    }));
+    });
 
     private Command _act_MiniMealSize;
-    public Command Act_MiniMealSize => _act_MiniMealSize ??= new Command(new Action(() =>
+    public Command Act_MiniMealSize => _act_MiniMealSize ??= new Command(() =>
     {
         // Small dinner plate weight?
         CaloriesWeight = 200;
-    }));
+    });
 
     private Command _act_AvgBreakfastSize;
-    public Command Act_AvgBreakfastSize => _act_AvgBreakfastSize ??= new Command(new Action(() =>
+    public Command Act_AvgBreakfastSize => _act_AvgBreakfastSize ??= new Command(() =>
     {
         // Approx. breakfast bowl size?
         CaloriesWeight = 226;
-    }));
+    });
 
     private Command _act_AvgLunchSize;
-    public Command Act_AvgLunchSize => _act_AvgLunchSize ??= new Command(new Action(() =>
+    public Command Act_AvgLunchSize => _act_AvgLunchSize ??= new Command(() =>
     {
         // Approx. Lunch serving? This may be way off, lazy here
         CaloriesWeight = 250;
-    }));
+    });
 
     private Command _addCalories;
-    public Command AddCalories => _addCalories ??= new Command(new Action(() =>
+    public Command AddCalories => _addCalories ??= new Command(() =>
     {
         if (CaloriesName.Length < 4 || CaloriesCount < 0 || CaloriesWeight < 1)
         {
@@ -197,7 +197,7 @@ public class CaloriesViewModel : IViewModel
             CF.DB.Insert(newCals);
             CF.Nav.GoTo(NavLocation.Home);
         }
-    }));
+    });
 
     public string CaloriesSoFar
     {
