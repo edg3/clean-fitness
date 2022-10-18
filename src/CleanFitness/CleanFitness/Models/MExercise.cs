@@ -1,4 +1,5 @@
-﻿using SQLite;
+﻿using Android.Graphics;
+using SQLite;
 
 namespace CleanFitness.Models;
 
@@ -7,5 +8,8 @@ public class MExercise : Model
 {
     public string Name { get; set; } = "";
     public string Description { get; set; } = "";
-    //public <hmm> Picture { get; set; } = null;
+    // TODO: Need to see if this will work in the DB
+    // TODO: Verify image size; thinking <= 2mb; will annoy people, but can be worked with I think
+    public Bitmap Picture { get; set; } = null;
+    public string RequiredEquipment { get; set; } = "";
 }

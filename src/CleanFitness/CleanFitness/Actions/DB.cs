@@ -201,6 +201,8 @@ public class DB
         _connection.CreateTable<MRoutine>();
         _connection.CreateTable<MRoutineLink>();
         _connection.CreateTable<MRoutineTracking>();
+
+
     }
 
     public async void ExportDB()
