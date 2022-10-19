@@ -17,7 +17,7 @@ public static class DataInit
         //  - Bodyweight
         DB.Insert(new MExercise()
         {
-            Picture = GetImageName(images, "burpees"), // Base64Encode / Base64Decode => to/from Bitmap as sqlite-net-pcl
+            //Picture = GetImageName(images, "burpees"), // Base64Encode / Base64Decode => to/from Bitmap as sqlite-net-pcl
             Name = "Standing Burpees",
             Description = "",
             RequiredEquipment = "",

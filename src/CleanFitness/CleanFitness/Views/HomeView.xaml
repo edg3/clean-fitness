@@ -56,7 +56,7 @@
                 </Grid>
             </Grid>
             <!-- TESTING -->
-            <Image Source="{Binding GetImage}" WidthRequest="240" HeightRequest="240"/>
+            <!--<Image Source="{Binding GetImage}" WidthRequest="240" HeightRequest="240"/>-->
             <!-- END TESTING -->
         </StackLayout>
     </ContentView.Content>
