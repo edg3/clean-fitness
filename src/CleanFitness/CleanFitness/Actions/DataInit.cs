@@ -1,19 +1,23 @@
-﻿using CleanFitness.Models;
+﻿using Android.Graphics;
+using CleanFitness.Models;
+using Java.Util;
+using System.Collections.Generic;
 
 namespace CleanFitness.Actions;
 
 public static class DataInit
 {
-    public static void DB(DB DB)
+    public static void DB(DB DB, Dictionary<string, Bitmap> images)
     {
         // Exercises
         #region EXERCISES
         //  - Bodyweight
         DB.Insert(new MExercise()
         {
+            Picture = images["burpees"],
             Name = "Standing Burpees",
             Description = "",
-            RequiredEquipment = ""
+            RequiredEquipment = "",
         });
         DB.Insert(new MExercise()
         {
@@ -144,7 +148,6 @@ public static class DataInit
             Description = "",
             RequiredEquipment = "Dumbbells"
         });
-        /* INTERNET DIED HERE */
         DB.Insert(new MExercise()
         {
             Name = "Renegade Row Push Ups with Dumbbells",
@@ -389,7 +392,7 @@ public static class DataInit
         });
         DB.Insert(new MExercise()
         {
-            Name = "Standing Close-Grip Barbell Bench Press",
+            Name = "Close-Grip Barbell Bench Press",
             Description = "",
             RequiredEquipment = "Barbell"
         });
@@ -401,19 +404,13 @@ public static class DataInit
         });
         DB.Insert(new MExercise()
         {
-            Name = "Standing Barbell Preacher Curl",
+            Name = "Seated Barbell Preacher Curl",
             Description = "",
             RequiredEquipment = "Barbell"
         });
         DB.Insert(new MExercise()
         {
-            Name = "Standing Barbell Vertical Preacher Curl",
-            Description = "",
-            RequiredEquipment = "Barbell"
-        });
-        DB.Insert(new MExercise()
-        {
-            Name = "Standing Barbell Spider Curl",
+            Name = "Incline Barbell Spider Curl",
             Description = "",
             RequiredEquipment = "Barbell"
         });
@@ -443,7 +440,7 @@ public static class DataInit
         });
         DB.Insert(new MExercise()
         {
-            Name = "Standing Barbell OVerhead Press",
+            Name = "Standing Barbell Overhead Press",
             Description = "",
             RequiredEquipment = "Barbell"
         });
@@ -456,12 +453,6 @@ public static class DataInit
         DB.Insert(new MExercise()
         {
             Name = "Standing Barbell Push Press",
-            Description = "",
-            RequiredEquipment = "Barbell"
-        });
-        DB.Insert(new MExercise()
-        {
-            Name = "Standing Barbell Bradford Press",
             Description = "",
             RequiredEquipment = "Barbell"
         });
@@ -480,18 +471,6 @@ public static class DataInit
         DB.Insert(new MExercise()
         {
             Name = "Standing Barbell Yates Row",
-            Description = "",
-            RequiredEquipment = "Barbell"
-        });
-        DB.Insert(new MExercise()
-        {
-            Name = "Standing Barbell Pendlay Row",
-            Description = "",
-            RequiredEquipment = "Barbell"
-        });
-        DB.Insert(new MExercise()
-        {
-            Name = "Standing Barbell Facepull",
             Description = "",
             RequiredEquipment = "Barbell"
         });
@@ -545,12 +524,6 @@ public static class DataInit
         });
         DB.Insert(new MExercise()
         {
-            Name = "Standing Barbell Pin Squat",
-            Description = "",
-            RequiredEquipment = "Barbell"
-        });
-        DB.Insert(new MExercise()
-        {
             Name = "Seated Barbell Calf Raises",
             Description = "",
             RequiredEquipment = "Barbell"
@@ -558,18 +531,6 @@ public static class DataInit
         DB.Insert(new MExercise()
         {
             Name = "Standing Barbell Calf Raises",
-            Description = "",
-            RequiredEquipment = "Barbell"
-        });
-        DB.Insert(new MExercise()
-        {
-            Name = "Floor Barbell Abdominal Roll Out",
-            Description = "",
-            RequiredEquipment = "Barbell"
-        });
-        DB.Insert(new MExercise()
-        {
-            Name = "Floor Barbell Overhead Sit Up",
             Description = "",
             RequiredEquipment = "Barbell"
         });

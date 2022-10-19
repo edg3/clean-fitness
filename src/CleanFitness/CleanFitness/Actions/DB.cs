@@ -1,4 +1,5 @@
-﻿using CleanFitness.Models;
+﻿using Android.Graphics;
+using CleanFitness.Models;
 using SQLite;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,7 @@ namespace CleanFitness.Actions;
 public class DB
 {
     private SQLiteConnection _connection = null;
-    private string _dbPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "clean-fitness.db3");
+    private string _dbPath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "clean-fitness.db3");
 
     public static DB I { get; private set; }
     public bool Connected { get; private set; }
@@ -135,7 +136,7 @@ public class DB
         return answer;
     }
 
-    public void Create(List<MBaseCalories> calories, string name, double height, double weight, int age)
+    public void Create(List<MBaseCalories> calories, Dictionary<string, Bitmap> images, string name, double height, double weight, int age)
     {
         _connection = new SQLiteConnection(_dbPath);
         Connected = true;
@@ -201,8 +202,6 @@ public class DB
         _connection.CreateTable<MRoutine>();
         _connection.CreateTable<MRoutineLink>();
         _connection.CreateTable<MRoutineTracking>();
-
-
     }
 
     public async void ExportDB()

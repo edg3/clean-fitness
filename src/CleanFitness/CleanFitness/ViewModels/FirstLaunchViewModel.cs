@@ -1,4 +1,5 @@
-﻿using CleanFitness.Actions;
+﻿using Android.Graphics;
+using CleanFitness.Actions;
 using CleanFitness.Models;
 using System;
 using System.Collections.Generic;
@@ -30,10 +31,11 @@ public class FirstLaunchViewModel : IViewModel
         }
     }
     private List<MBaseCalories> _BaseImportList = null;
+    private Dictionary<string, Bitmap> _BaseImagesDict = null;
     // Currently: only puts it in memory while I decide interaction for the data inserting implementation at start
     private async Task<bool> DownloadMyFoodData()
     {
-        var downloadedFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyFoodData.zip");
+        var downloadedFilePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyFoodData.zip");
         if (File.Exists(downloadedFilePath))
         {
             var finfo = new FileInfo(downloadedFilePath);
@@ -41,7 +43,7 @@ public class FirstLaunchViewModel : IViewModel
             {
                 using (var localFile = File.OpenRead(downloadedFilePath))
                 {
-                    if (ProcessCaloriesFile(localFile)) return true;
+                    if (ProcessCaloriesFile(localFile)) return await DownloadDefaultImages();
                 }
             }
         }
@@ -61,9 +63,58 @@ public class FirstLaunchViewModel : IViewModel
             {
                 return false;
             }
-            return true;
+            return await DownloadDefaultImages();
         }
 
+        return false;
+    }
+
+    private async Task<bool> DownloadDefaultImages()
+    {
+        var downloadedFilePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Images.zip");
+        if (File.Exists(downloadedFilePath))
+        {
+            var finfo = new FileInfo(downloadedFilePath);
+            if (finfo.Length == 1)
+            {
+                using (var localFile = File.OpenRead(downloadedFilePath))
+                {
+                    if (ProcessImageDictionary(localFile)) return true;
+                }
+            }
+        }
+
+        var success = await DownloadFileAsync("https://edg3.co.za/dl/Images.zip", downloadedFilePath);
+
+        if (success)
+        {
+            try
+            {
+                return ProcessImageDictionary(File.OpenRead(downloadedFilePath));
+            }
+            catch (Exception e)
+            {
+                var a = 1;
+            }
+        }
+
+        return false;
+    }
+    private bool ProcessImageDictionary(FileStream localFile)
+    {
+        _BaseImagesDict = new Dictionary<string, Bitmap>();
+        using (var localZip = new ZipArchive(localFile, ZipArchiveMode.Read))
+        {
+            foreach (var localEntry in localZip.Entries)
+            {
+                var name = localEntry.Name.Split('.')[0];
+                using (var stream = localEntry.Open())
+                {
+                    _BaseImagesDict.Add(name, BitmapFactory.DecodeStream(stream));
+                }
+            }
+            return true;
+        }
         return false;
     }
 
@@ -222,7 +273,7 @@ public class FirstLaunchViewModel : IViewModel
             if (Weight < 0) Weight = 1;
             if (Age < 0) Age = 1;
             await MainPage.I.DisplayAlert("Note", "Please wait, the database will be created after you press 'Ok'. Don't force close the app.", "Ok");
-            DB.I.Create(_BaseImportList, Name, Height, Weight, Age);
+            DB.I.Create(_BaseImportList, _BaseImagesDict, Name, Height, Weight, Age);
             _personalInformationSetup = false;
             await MainPage.I.DisplayAlert("Note", "Done! You can now use Simple Fitness.", "Ok");
             CF.Nav.GoTo(NavLocation.Home);
