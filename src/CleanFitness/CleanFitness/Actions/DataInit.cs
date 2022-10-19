@@ -24,6 +24,15 @@ public static class DataInit
         };
         DB.Insert(exercise_standing_burpees);
 
+        var exercise_plank = new MExercise()
+        {
+            Name = "Floor Plank",
+            Description = "",
+            RequiredEquipment = "",
+            Image = ""
+        };
+        DB.Insert(exercise_plank);
+
         var exercise_standing_jump_squats = new MExercise()
         {
             Name = "Standing Jump Squats",
@@ -869,9 +878,49 @@ public static class DataInit
         // Saturday, Wedneday: Rest Days - TODO: put in stretches options and such
         routineLinks = new List<MRoutineLink>();
         _InsertExercise(routineLinks, exercise_brisk_walk_on_treadmill, "20 minutes", "Or take a 20 minute brisk walk.");
-        BuildRoutine(DB, "Brisk Walk on Treadmill", "Take 20 minutes to brisk walk on a treadmill today.", false, false, false, false, false, false, false, false, routineLinks);
+        BuildRoutine(DB, "Brisk Walk on Treadmill", "Take 20 minutes to brisk walk on a treadmill today.", false, false, false, true, false, false, true, false, routineLinks);
 
-        // Sunday: Medium effort
+        // Sunday: Medium effort - Arms/Shoulders
+        routineLinks = new List<MRoutineLink>();
+        _InsertExercise(routineLinks, exercise_brisk_walk_on_treadmill, "5-10 minutes", "");
+        _InsertExercise(routineLinks, exercise_floor_push_up, "20 reps", ""); // TODO: rest times
+        _InsertExercise(routineLinks, exercise_standing_pull_up, "10 reps", "");
+        _InsertExercise(routineLinks, exercise_floor_push_up, "20 reps", "");
+        _InsertExercise(routineLinks, exercise_standing_pull_up, "10 reps", "");
+        _InsertExercise(routineLinks, exercise_plank, "60 seconds", ""); // TODO: revamp for time windows to use auto android voice
+        BuildRoutine(DB, "Medium: Arms, Shoulders", "Small bodyweight exercises. You can do pull ups at trees if need be, remember that.", false, false, false, false, false, false, false, true, routineLinks);
+
+        routineLinks = new List<MRoutineLink>();
+        _InsertExercise(routineLinks, exercise_brisk_walk_on_treadmill, "5-10 minutes", "");
+        _InsertExercise(routineLinks, exercise_floor_push_up, "20 reps", "");
+        _InsertExercise(routineLinks, exercise_bicep_curls_with_dumbbells, "12 reps", "");
+        _InsertExercise(routineLinks, exercise_lateral_raises_with_dumbbells, "12 reps", "");
+        _InsertExercise(routineLinks, exercise_floor_push_up, "20 reps", "");
+        _InsertExercise(routineLinks, exercise_bicep_curls_with_dumbbells, "12 reps", "");
+        _InsertExercise(routineLinks, exercise_lateral_raises_with_dumbbells, "12 reps", "");
+        _InsertExercise(routineLinks, exercise_plank, "60 seconds", "");
+        BuildRoutine(DB, "Medium: Arms, Shoulders", "Less bodyweight, using Dumbbells to do a little more.", false, false, false, false, false, false, false, true, routineLinks);
+
+        routineLinks = new List<MRoutineLink>();
+        _InsertExercise(routineLinks, exercise_brisk_walk_on_treadmill, "5-10 minutes", "");
+        _InsertExercise(routineLinks, exercise_floor_push_up, "20 reps", "");
+        _InsertExercise(routineLinks, exercise_incline_barbell_bench_press, "10 reps", "Can be dumbbells.");
+        _InsertExercise(routineLinks, exercise_incline_barbell_bench_press, "10 reps", "Can be dumbbells.");
+        _InsertExercise(routineLinks, exercise_incline_barbell_bench_press, "10 reps", "Can be dumbbells.");
+        _InsertExercise(routineLinks, exercise_incline_barbell_bench_press, "10 reps", "Can be dumbbells.");
+        _InsertExercise(routineLinks, exercise_floor_push_up, "20 reps", "");
+        _InsertExercise(routineLinks, exercise_front_lateral_raises_with_dumbbells, "12 reps", "6 each side.");
+        _InsertExercise(routineLinks, exercise_front_lateral_raises_with_dumbbells, "12 reps", "6 each side.");
+        _InsertExercise(routineLinks, exercise_front_lateral_raises_with_dumbbells, "12 reps", "6 each side.");
+        _InsertExercise(routineLinks, exercise_front_lateral_raises_with_dumbbells, "12 reps", "6 each side.");
+        _InsertExercise(routineLinks, exercise_floor_push_up, "20 reps", "");
+        _InsertExercise(routineLinks, exercise_standing_barbell_overhead_press, "12 reps", "Can be dumbbells.");
+        _InsertExercise(routineLinks, exercise_standing_barbell_overhead_press, "12 reps", "Can be dumbbells.");
+        _InsertExercise(routineLinks, exercise_standing_barbell_overhead_press, "12 reps", "Can be dumbbells.");
+        _InsertExercise(routineLinks, exercise_standing_barbell_overhead_press, "12 reps", "Can be dumbbells.");
+        _InsertExercise(routineLinks, exercise_plank, "60 seconds", "");
+        BuildRoutine(DB, "Heavy: Arms, Shoudlers", "Mostly weighted exercise, focus on upper arms and shoulders.", false, false, false, false, false, false, false, true, routineLinks);
+        
 
         // Monday: Medium effort
 
