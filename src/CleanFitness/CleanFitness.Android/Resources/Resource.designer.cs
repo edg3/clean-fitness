@@ -17002,7 +17002,7 @@ namespace CleanFitness.Droid
 			public const int img_tricep_dip = 2131165331;
 			
 			// aapt resource value: 0x7F070092
-			public const int img_t_pushup = 2131165330;
+			public const int img_t_push_up = 2131165330;
 			
 			// aapt resource value: 0x7F070094
 			public const int img_v_push_ups = 2131165332;
