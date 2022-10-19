@@ -32,8 +32,6 @@ public class HomeViewModel : IViewModel
     private Command _doExport;
     public Command DoExport => _doExport ??= new Command(() => { DB.I.ExportDB(); });
 
-    public string Image => ""; //"img_back_extension.png";
-
     public void CleanData()
     {
         _statsView = null;

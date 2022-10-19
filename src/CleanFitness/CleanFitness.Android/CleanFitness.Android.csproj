@@ -168,7 +168,7 @@
     <AndroidResource Include="Resources\drawable\img_side_plank.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\img_t_pushup.png" />
+    <AndroidResource Include="Resources\drawable\img_t_push_up.png" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\img_tricep_dip.png" />
