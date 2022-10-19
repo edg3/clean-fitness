@@ -19,7 +19,8 @@ public static class DataInit
         {
             Name = "Standing Burpees",
             Description = "",
-            RequiredEquipment = ""
+            RequiredEquipment = "",
+            Image = "img_back_extension.png"
         });
         DB.Insert(new MExercise()
         {

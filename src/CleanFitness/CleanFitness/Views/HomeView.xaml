@@ -55,6 +55,8 @@
                     <Button Grid.Column="0" Text="Export" Command="{Binding DoExport}" />
                 </Grid>
             </Grid>
+            <!-- Users can use URLS; OR we can slowly build up exercises to images for them, I guess -->
+            <Image Source="{Binding Image}" WidthRequest="100" HeightRequest="100"/> <!--{Binding Image}-->
         </StackLayout>
     </ContentView.Content>
 </ContentView>

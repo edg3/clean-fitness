@@ -104,7 +104,6 @@ public class FirstLaunchViewModel : IViewModel
     private bool ProcessImageDictionary(FileStream localFile)
     {
         _BaseImagesDict = new Dictionary<string, string>();
-        return true;
         using (var localZip = new ZipArchive(localFile, ZipArchiveMode.Read))
         {
             foreach (var localEntry in localZip.Entries)

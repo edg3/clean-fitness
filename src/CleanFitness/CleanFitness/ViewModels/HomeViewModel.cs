@@ -32,6 +32,8 @@ public class HomeViewModel : IViewModel
     private Command _doExport;
     public Command DoExport => _doExport ??= new Command(() => { DB.I.ExportDB(); });
 
+    public string Image => "https://www.edg3.co.za/wp-content/uploads/2022/09/the-fifth-agreement-a-practical-guide-to-self-mastery.jpg"; //"img_back_extension.png";
+
     public void CleanData()
     {
         _statsView = null;
