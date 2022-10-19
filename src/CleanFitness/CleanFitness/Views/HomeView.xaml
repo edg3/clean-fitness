@@ -44,7 +44,7 @@
                 <Button Grid.Row="5" Command="{Binding GoStats}" Text="Stats" />
 
                 <Button Grid.Row="7" Command="{Binding GoRecipes}" Text="Recipes" />
-                
+
                 <!-- TODO: hide in appropriate manners -->
                 <Grid Grid.Row="9">
                     <Grid.ColumnDefinitions>
@@ -55,11 +55,7 @@
                     <Button Grid.Column="0" Text="Export" Command="{Binding DoExport}" />
                 </Grid>
             </Grid>
-            <!-- TESTING -->
-            <!--<Image x:Name="testImage" Source="img.back_extension.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="100"/>-->
-            <!--WidthRequest="240" HeightRequest="240"-->
-            <!--{Binding GetImage.ImageSource}-->
-            <!-- END TESTING -->
+            <Image x:Name="testImage" Source="{Binding GetImage}" Aspect="AspectFit" WidthRequest="240" HeightRequest="240"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

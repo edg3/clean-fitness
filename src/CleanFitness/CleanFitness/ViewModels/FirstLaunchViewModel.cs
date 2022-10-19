@@ -103,14 +103,13 @@ public class FirstLaunchViewModel : IViewModel
     private bool ProcessImageDictionary(FileStream localFile)
     {
         _BaseImagesDict = new Dictionary<string, Bitmap>();
-        return true; // No images for now since I need to work this out better
         using (var localZip = new ZipArchive(localFile, ZipArchiveMode.Read))
         {
             foreach (var localEntry in localZip.Entries)
             {
                 using (var openEntry = localEntry.Open())
                 {
-                    var filePath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "img." + localEntry.Name);
+                    var filePath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), localEntry.Name);
                     if (!File.Exists(filePath))
                     {
                         using (var memoryStream = new MemoryStream())

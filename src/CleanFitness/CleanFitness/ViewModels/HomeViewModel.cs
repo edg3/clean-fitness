@@ -37,7 +37,7 @@ public class HomeViewModel : IViewModel
     {
         get
         {
-            return (CF.DB.Get<MExercise>(a => true).First().ImageLoader);
+            return (CF.DB.Get<MExercise>(a => true).First().Image);
         }
     }
     // End Test

@@ -20,7 +20,7 @@ public static class DataInit
             Name = "Standing Burpees",
             Description = "",
             RequiredEquipment = "",
-            //Image = "img.bicycle_crunch.png" // Hmm. Doesn't seem to work
+            Image = "img_burpees.png"
         });
         DB.Insert(new MExercise()
         {
