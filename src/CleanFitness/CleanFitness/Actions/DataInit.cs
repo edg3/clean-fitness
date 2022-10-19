@@ -17,10 +17,10 @@ public static class DataInit
         //  - Bodyweight
         DB.Insert(new MExercise()
         {
-            //Picture = GetImageName(images, "burpees"), // Base64Encode / Base64Decode => to/from Bitmap as sqlite-net-pcl
             Name = "Standing Burpees",
             Description = "",
             RequiredEquipment = "",
+            //Image = "img.bicycle_crunch.png" // Hmm. Doesn't seem to work
         });
         DB.Insert(new MExercise()
         {
@@ -574,16 +574,5 @@ public static class DataInit
 
         // Routines
 
-    }
-
-    private static string GetImageName(Dictionary<string, Bitmap> images, string v)
-    {
-        var img = images[v];
-        using (var stream = new MemoryStream())
-        {
-            img.Compress(Bitmap.CompressFormat.Png, 100, stream);
-            byte[] byteArray = stream.ToArray();
-            return CF.Base64Encode(System.Text.Encoding.Default.GetString(byteArray));
-        }
     }
 }

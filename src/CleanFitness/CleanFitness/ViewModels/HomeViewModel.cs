@@ -32,24 +32,15 @@ public class HomeViewModel : IViewModel
     private Command _doExport;
     public Command DoExport => _doExport ??= new Command(() => { DB.I.ExportDB(); });
 
-    // TEST TEMPORARY
-    //public ImageSource GetImage
-    //{
-    //    get
-    //    {
-    //        var imglist = DB.I.Get<MExercise>(a => a.Name == "Standing Burpees");
-    //        var first = imglist.First();
-    //        var picture = first.Picture;
-    //        var pictureArray = CF.Base64Decode(picture);
-    //        using (var stream = new MemoryStream())
-    //        {
-    //            pictureArray.Compress(Bitmap.CompressFormat.Png, 0, stream);
-    //            byte[] data = stream.ToArray();
-    //            return ImageSource.FromStream(new Func<Stream>(() => { return new MemoryStream(data); }));//ImageSource.FromStream(new Func<Stream>(() => { return stream; }));
-    //        }
-    //    }
-    //}
-    // END TEST TEMPORARY
+    // Test
+    public ImageSource GetImage
+    {
+        get
+        {
+            return (CF.DB.Get<MExercise>(a => true).First().ImageLoader);
+        }
+    }
+    // End Test
 
     public void CleanData()
     {

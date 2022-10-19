@@ -1,5 +1,9 @@
 ﻿using Android.Graphics;
+using Java.IO;
+using Java.Interop;
 using SQLite;
+using System.IO;
+using Xamarin.Forms;
 
 namespace CleanFitness.Models;
 
@@ -8,8 +12,16 @@ public class MExercise : Model
 {
     public string Name { get; set; } = "";
     public string Description { get; set; } = "";
-    // TODO: Need to see if this will work in the DB
-    // TODO: Verify image size; thinking <= 2mb; will annoy people, but can be worked with I think
-    public string Picture { get; set; } = null;
+    // Moved to app storage
+    public string Image { get; set; } = null;
     public string RequiredEquipment { get; set; } = "";
+
+    [Ignore]
+    public ImageSource ImageLoader
+    {
+        get
+        {
+            return ImageSource.FromFile(System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), Image));
+        }
+    }
 }

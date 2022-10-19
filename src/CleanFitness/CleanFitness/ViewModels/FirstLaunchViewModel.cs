@@ -103,14 +103,32 @@ public class FirstLaunchViewModel : IViewModel
     private bool ProcessImageDictionary(FileStream localFile)
     {
         _BaseImagesDict = new Dictionary<string, Bitmap>();
+        return true; // No images for now since I need to work this out better
         using (var localZip = new ZipArchive(localFile, ZipArchiveMode.Read))
         {
             foreach (var localEntry in localZip.Entries)
             {
-                var name = localEntry.Name.Split('.')[0];
-                using (var stream = localEntry.Open())
+                using (var openEntry = localEntry.Open())
                 {
-                    _BaseImagesDict.Add(name, BitmapFactory.DecodeStream(stream));
+                    var filePath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), "img." + localEntry.Name);
+                    if (!File.Exists(filePath))
+                    {
+                        using (var memoryStream = new MemoryStream())
+                        {
+                            openEntry.CopyTo(memoryStream);
+
+                            using (var writer = System.IO.File.Create(filePath))
+                            {
+                                byte[] bytesInStream = new byte[memoryStream.Length];
+                                openEntry.Read(bytesInStream, 0, bytesInStream.Length);
+
+                                writer.Write(bytesInStream, 0, bytesInStream.Length);
+                                writer.Close();
+
+                                var filesInFolder = Directory.GetFiles(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal));
+                            }
+                        }
+                    }
                 }
             }
             return true;
@@ -275,6 +293,8 @@ public class FirstLaunchViewModel : IViewModel
             await MainPage.I.DisplayAlert("Note", "Please wait, the database will be created after you press 'Ok'. Don't force close the app.", "Ok");
             DB.I.Create(_BaseImportList, _BaseImagesDict, Name, Height, Weight, Age);
             _personalInformationSetup = false;
+            File.Delete(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "MyFoodData.zip"));
+            File.Delete(System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Images.zip"));
             await MainPage.I.DisplayAlert("Note", "Done! You can now use Simple Fitness.", "Ok");
             CF.Nav.GoTo(NavLocation.Home);
         }

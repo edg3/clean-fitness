@@ -56,7 +56,9 @@
                 </Grid>
             </Grid>
             <!-- TESTING -->
-            <!--<Image Source="{Binding GetImage}" WidthRequest="240" HeightRequest="240"/>-->
+            <!--<Image x:Name="testImage" Source="img.back_extension.png" Aspect="AspectFit" WidthRequest="100" HeightRequest="100"/>-->
+            <!--WidthRequest="240" HeightRequest="240"-->
+            <!--{Binding GetImage.ImageSource}-->
             <!-- END TESTING -->
         </StackLayout>
     </ContentView.Content>
