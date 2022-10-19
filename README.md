@@ -14,7 +14,7 @@ Personal Exercise Tracking which has notifications as reminders
 - Tracking and graphs
 - Personal body tracking
 - Method to turn on 'Warm Up' before exercise - gives 5 minutes to Walk, Run, Cycle, Row, etc before the exercise - you can choose what and track it
-- Muscle Grouping most likely helps with usability [see (2) below]
+- Muscle Grouping most likely helps with usability [TODO: in descriptions]
 
 Personal Calories Tracking with which is meant to build the habit of not constantly eating 'too much'; more an assistant than a hardcore food management system
 - Put in recipes; can track the amounts used; implies can have approximate calories out dishes (e.g. 5th approx for dinner, 5th approx for lunch tomorrow; implies track 'what was made last night' for an 'in the fridge' which you can clean out later)
@@ -22,15 +22,10 @@ Personal Calories Tracking with which is meant to build the habit of not constan
 - Add in a suggestion system for things like hardcore exercise planning
 
 # Exercise Considerations
-[Considering: possibly store photos in app DB; might make it a little painful for sharing, though]
 
 [(1) Build in old @Home plan, Build in old RTe plan for @Gym, Build in RTe suggestions and recommendations to understandable suggestions]
 
-[Considering: There's a suggestion for protein + carbs intake around 15 minutes after exercises; should I build it in here on reminders, etc?]
-
-[Considering: Add in 'relaxed' exercises to use; as in if you have an injury and don't feel like hardcore exercise can do some yoga, perhaps, or small activities?]
-
-[(2) main areas: Upper (arms, shoulders, upper back), Lower (legs, glutes), Core (upper abdominal, lower abdominal, back), Cardio (moving exercises), Flexibility (stretches)]
+[Need: Message to remind boost to protein + carbs; not intense suggestions]
 
 # Meal Assistance Considerations
 [Considering: Mapping in meals that are low calories, high protein and carbs at certain amounts (e.g. 200g carbs to create meal, 4 dishes implies 50g carbs in the dish; you needed to stay around 240g for the day)]
@@ -38,10 +33,6 @@ Personal Calories Tracking with which is meant to build the habit of not constan
 [Considering: When you put in a recipe it can try automatically get the calories on creation to make it easier to use as a quick calories tracking setup]
 
 [Considering: How to make the map of reports work in an interactive way; e.g. state 'I want to keep track of my Carbs, Sugars, and Caffeine intake as well' and the small tracking assistance can do graphs on the reports]
-
-[Need: Methods to convert liquids from grams to cup, etc when putting in data - e.g. 100g drink approximate at around 235g in calcs for a cup. Intended purpose - can click '1 cup' instead of putting in approximate amounts for ease]
-
-[Need: Add spotify, experiment with https://github.com/JohnnyCrazy/SpotifyAPI-NET ]
 
 # Logic Consideration for Model Structures
 - Deleted flag is so you can find anything you removed in the past and get it back if you'd like.
@@ -67,3 +58,9 @@ Personal Calories Tracking with which is meant to build the habit of not constan
 - Goal: This isn't to tell you what you shouldn't have in your diet; rather assist you in 'watching' your diet for yourself. For this reason, reports will be very simplified - the aim is to try help you follow a good routine of income, etc. Kinda why I want to make this possible to manage recipes as it can become the 'one stop shop' for knowledge needed in this regard
 
 [Logic flaw: it's lovely to get the calories information with ease for things, but it isn't super successful. I would believe I need to put in the data interaction to 'add your own' but also how do we properly track things here? I don't want to have to weight each portion of the food I'm eating to generate a viable number here. It will work with the recipe interaction, but I figure it should be a ball-park use for calories tracking]
+
+# Ideas Cancelled
+- possibly store photos in app DB
+- Spotify
+- Relaxed version - you choose the 'intense' Routine, or a 'relaxed' routine; manage them yourse;
+- Suggestion protein + carbs you have after exercise; will just be 'Remember to boost your protein and carbs a little' message after
