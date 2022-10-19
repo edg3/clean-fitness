@@ -10,6 +10,7 @@ namespace CleanFitness.Models;
 [Table("Exercises")]
 public class MExercise : Model
 {
+    [Unique]
     public string Name { get; set; } = "";
     public string Description { get; set; } = "";
     public string Image { get; set; } = null;
