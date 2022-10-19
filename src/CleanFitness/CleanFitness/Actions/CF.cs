@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Android.Graphics;
+using Android.Util;
+using System;
 
 namespace CleanFitness.Actions;
 
@@ -33,5 +35,21 @@ public static class CF
     public async static void Popup(string title, string message, string cancel)
     {
         await MainPage.I.DisplayAlert(title, message, cancel);
+    }
+
+    // Source: https://stackoverflow.com/questions/38875613/how-to-store-image-to-sqlite-in-xamarin-android
+    public static string Base64Encode(string plainText)
+    {
+        var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+        return System.Convert.ToBase64String(plainTextBytes);
+    }
+    public static Bitmap Base64Decode(string base64EncodedData)
+    {
+        //byte[] imageAsBytes = System.Text.Encoding.UTF8.GetBytes(Base64.Decode(base64EncodedData, Base64Flags.Default).ToString().ToCharArray());
+        //return BitmapFactory.DecodeByteArray(imageAsBytes, 0, imageAsBytes.Length);
+        //var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+        //return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedData);
+        return BitmapFactory.DecodeByteArray(base64EncodedBytes, 0, base64EncodedBytes.Length);
     }
 }

@@ -1,7 +1,9 @@
-﻿using CleanFitness.Actions;
+﻿using Android.Graphics;
+using CleanFitness.Actions;
 using CleanFitness.Models;
 using System;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using Xamarin.Forms;
@@ -29,6 +31,25 @@ public class HomeViewModel : IViewModel
 
     private Command _doExport;
     public Command DoExport => _doExport ??= new Command(() => { DB.I.ExportDB(); });
+
+    // TEST TEMPORARY
+    public ImageSource GetImage
+    {
+        get
+        {
+            var imglist = DB.I.Get<MExercise>(a => a.Name == "Standing Burpees");
+            var first = imglist.First();
+            var picture = first.Picture;
+            var pictureArray = CF.Base64Decode(picture);
+            using (var stream = new MemoryStream())
+            {
+                pictureArray.Compress(Bitmap.CompressFormat.Png, 0, stream);
+                byte[] data = stream.ToArray();
+                return ImageSource.FromStream(new Func<Stream>(() => { return new MemoryStream(data); }));//ImageSource.FromStream(new Func<Stream>(() => { return stream; }));
+            }
+        }
+    }
+    // END TEST TEMPORARY
 
     public void CleanData()
     {
@@ -59,10 +80,10 @@ public class HomeViewModel : IViewModel
     {
         // Does replace in the channel so don't need to clean it more
         // TODO: Make it possible to set a Hour:minute in the day for the notifications
-        
+
         // Tomorrow morning = that days set exercise, or a reminder to stay active for if no exercise
         var tomorrow = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day + 1);
-        tomorrow = tomorrow + new TimeSpan(7,0,0);
+        tomorrow = tomorrow + new TimeSpan(7, 0, 0);
         CF.Notifier.Add(tomorrow, "Good morning! Don't forget to exercise, or stretch, today.", NotificationChannel.N1);
         // In 4 days - this means you can skip a day and it will remind you you need to try more exercises in 4 days
         var future = tomorrow.AddDays(3);

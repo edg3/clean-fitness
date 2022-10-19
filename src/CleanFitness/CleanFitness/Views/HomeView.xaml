@@ -55,6 +55,9 @@
                     <Button Grid.Column="0" Text="Export" Command="{Binding DoExport}" />
                 </Grid>
             </Grid>
+            <!-- TESTING -->
+            <Image Source="{Binding GetImage}" WidthRequest="240" HeightRequest="240"/>
+            <!-- END TESTING -->
         </StackLayout>
     </ContentView.Content>
 </ContentView>

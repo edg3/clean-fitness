@@ -1,7 +1,10 @@
 ﻿using Android.Graphics;
 using CleanFitness.Models;
+using Java.IO;
 using Java.Util;
+using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace CleanFitness.Actions;
 
@@ -14,7 +17,7 @@ public static class DataInit
         //  - Bodyweight
         DB.Insert(new MExercise()
         {
-            //Picture = images["burpees"], // Base64Encode / Base64Decode => to/from Bitmap as sqlite-net-pcl
+            Picture = GetImageName(images, "burpees"), // Base64Encode / Base64Decode => to/from Bitmap as sqlite-net-pcl
             Name = "Standing Burpees",
             Description = "",
             RequiredEquipment = "",
@@ -571,5 +574,16 @@ public static class DataInit
 
         // Routines
 
+    }
+
+    private static string GetImageName(Dictionary<string, Bitmap> images, string v)
+    {
+        var img = images[v];
+        using (var stream = new MemoryStream())
+        {
+            img.Compress(Bitmap.CompressFormat.Png, 100, stream);
+            byte[] byteArray = stream.ToArray();
+            return CF.Base64Encode(System.Text.Encoding.Default.GetString(byteArray));
+        }
     }
 }

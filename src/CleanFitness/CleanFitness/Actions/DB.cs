@@ -186,6 +186,8 @@ public class DB
 
         // Insert all calories
         calories.ForEach((a) => { Insert(a); });
+
+        DataInit.DB(this, images);
     }
 
     private void DBInit()
