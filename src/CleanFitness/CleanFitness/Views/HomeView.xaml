@@ -55,7 +55,6 @@
                     <Button Grid.Column="0" Text="Export" Command="{Binding DoExport}" />
                 </Grid>
             </Grid>
-            <Image x:Name="testImage" Source="{Binding GetImage}" Aspect="AspectFit" WidthRequest="240" HeightRequest="240"/>
         </StackLayout>
     </ContentView.Content>
 </ContentView>

@@ -32,16 +32,6 @@ public class HomeViewModel : IViewModel
     private Command _doExport;
     public Command DoExport => _doExport ??= new Command(() => { DB.I.ExportDB(); });
 
-    // Test
-    public ImageSource GetImage
-    {
-        get
-        {
-            return (CF.DB.Get<MExercise>(a => true).First().Image);
-        }
-    }
-    // End Test
-
     public void CleanData()
     {
         _statsView = null;

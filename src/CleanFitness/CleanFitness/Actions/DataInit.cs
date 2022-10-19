@@ -10,7 +10,7 @@ namespace CleanFitness.Actions;
 
 public static class DataInit
 {
-    public static void DB(DB DB, Dictionary<string, Bitmap> images)
+    public static void DB(DB DB, Dictionary<string, string> images)
     {
         // Exercises
         #region EXERCISES
@@ -19,8 +19,7 @@ public static class DataInit
         {
             Name = "Standing Burpees",
             Description = "",
-            RequiredEquipment = "",
-            Image = "img_burpees.png"
+            RequiredEquipment = ""
         });
         DB.Insert(new MExercise()
         {

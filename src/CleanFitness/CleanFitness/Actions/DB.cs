@@ -136,7 +136,7 @@ public class DB
         return answer;
     }
 
-    public void Create(List<MBaseCalories> calories, Dictionary<string, Bitmap> images, string name, double height, double weight, int age)
+    public void Create(List<MBaseCalories> calories, Dictionary<string, string> images, string name, double height, double weight, int age)
     {
         _connection = new SQLiteConnection(_dbPath);
         Connected = true;

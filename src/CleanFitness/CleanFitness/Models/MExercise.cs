@@ -17,11 +17,11 @@ public class MExercise : Model
     public string RequiredEquipment { get; set; } = "";
 
     [Ignore]
-    public ImageSource ImageLoader
+    public string ImageLoader
     {
         get
         {
-            return ImageSource.FromFile(System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), Image));
+            return Image; //ImageSource.FromFile(System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), Image));
         }
     }
 }

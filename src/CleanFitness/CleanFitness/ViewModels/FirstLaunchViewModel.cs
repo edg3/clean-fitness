@@ -31,7 +31,8 @@ public class FirstLaunchViewModel : IViewModel
         }
     }
     private List<MBaseCalories> _BaseImportList = null;
-    private Dictionary<string, Bitmap> _BaseImagesDict = null;
+    // FileName => FilePath
+    private Dictionary<string, string> _BaseImagesDict = null;
     // Currently: only puts it in memory while I decide interaction for the data inserting implementation at start
     private async Task<bool> DownloadMyFoodData()
     {
@@ -102,7 +103,8 @@ public class FirstLaunchViewModel : IViewModel
     }
     private bool ProcessImageDictionary(FileStream localFile)
     {
-        _BaseImagesDict = new Dictionary<string, Bitmap>();
+        _BaseImagesDict = new Dictionary<string, string>();
+        return true;
         using (var localZip = new ZipArchive(localFile, ZipArchiveMode.Read))
         {
             foreach (var localEntry in localZip.Entries)
@@ -110,6 +112,7 @@ public class FirstLaunchViewModel : IViewModel
                 using (var openEntry = localEntry.Open())
                 {
                     var filePath = System.IO.Path.Combine(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal), localEntry.Name);
+                    _BaseImagesDict.Add(localEntry.Name, filePath);
                     if (!File.Exists(filePath))
                     {
                         using (var memoryStream = new MemoryStream())
@@ -123,8 +126,6 @@ public class FirstLaunchViewModel : IViewModel
 
                                 writer.Write(bytesInStream, 0, bytesInStream.Length);
                                 writer.Close();
-
-                                var filesInFolder = Directory.GetFiles(System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal));
                             }
                         }
                     }
