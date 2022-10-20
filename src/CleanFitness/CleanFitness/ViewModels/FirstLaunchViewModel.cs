@@ -44,7 +44,7 @@ public class FirstLaunchViewModel : IViewModel
             {
                 using (var localFile = File.OpenRead(downloadedFilePath))
                 {
-                    if (ProcessCaloriesFile(localFile)) return await DownloadDefaultImages();
+                    if (ProcessCaloriesFile(localFile)) return true;
                 }
             }
         }
@@ -64,43 +64,12 @@ public class FirstLaunchViewModel : IViewModel
             {
                 return false;
             }
-            return await DownloadDefaultImages();
+            return true;
         }
 
         return false;
     }
 
-    private async Task<bool> DownloadDefaultImages()
-    {
-        var downloadedFilePath = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "Images.zip");
-        if (File.Exists(downloadedFilePath))
-        {
-            var finfo = new FileInfo(downloadedFilePath);
-            if (finfo.Length == 1)
-            {
-                using (var localFile = File.OpenRead(downloadedFilePath))
-                {
-                    if (ProcessImageDictionary(localFile)) return true;
-                }
-            }
-        }
-
-        var success = await DownloadFileAsync("https://edg3.co.za/dl/Images.zip", downloadedFilePath);
-
-        if (success)
-        {
-            try
-            {
-                return ProcessImageDictionary(File.OpenRead(downloadedFilePath));
-            }
-            catch (Exception e)
-            {
-                var a = 1;
-            }
-        }
-
-        return false;
-    }
     private bool ProcessImageDictionary(FileStream localFile)
     {
         _BaseImagesDict = new Dictionary<string, string>();
