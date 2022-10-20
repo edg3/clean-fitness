@@ -15,4 +15,11 @@ public class MExercise : Model
     public string Description { get; set; } = "";
     public string Image { get; set; } = null;
     public string RequiredEquipment { get; set; } = "";
+    public ExerciseType Type { get; set; } = ExerciseType.Set;
+}
+
+public enum ExerciseType
+{
+    Set,
+    Timed
 }

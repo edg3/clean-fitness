@@ -12,7 +12,15 @@ public class MRoutineLink : Model
     public int OrderNumber { get; set; } = 0;
     /* Amount e.g. '12 reps', or '60 seconds'; you can always be lazy and just write '12' since it's 'pushups' and you know its reps*/
     public string Amount { get; set; } = "";
-    /* TODO: consider this if it's smaller as null instead of empty string, perhaps? */
+    public bool Timed { get; set; } = false;
+    /* Other */
     public string Special { get; set; } = "";
+    public RoutineRestAfter RestAfter { get; set; } = RoutineRestAfter.Yes;
 
+}
+
+public enum RoutineRestAfter
+{
+    Yes,
+    No
 }
